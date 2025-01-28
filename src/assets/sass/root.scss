@@ -10,11 +10,11 @@
 @media only screen and (min-width: 0em) {
     // Website colors
     :root {
-        --primaryLight:  #FF7B3F;
-        --primary: #FF7B3F;
+        --primaryLight:  #0137F3;
+        --primary: #0137F3;
         --primaryDark: black;
-        --headerScroll: black;
-        --mobileNav: black;
+        --headerScroll: white;
+        --mobileNav: white;
         --callBg: black;
         --secondary:white;
         --secondaryLight: #001f3f;
@@ -91,7 +91,7 @@
         line-height: 22px;
         font-weight: bold;
         // Transition Properties
-        color: black;
+        color: white;
         
         text-align: center;
 
