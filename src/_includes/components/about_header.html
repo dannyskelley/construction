@@ -1,0 +1,138 @@
+<style>
+    /*-- -------------------------- -->
+<---           Video            -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0rem) {
+  #video-2280 {
+    padding: var(--sectionPadding);
+    padding-top: 0;
+    position: relative;
+    z-index: 1;
+  }
+  #video-2280 .cs-container {
+    max-width: 80rem;
+    margin: auto;
+  }
+  #video-2280 .cs-content {
+    /* 317px - 524px */
+    padding-top: clamp(2.8125rem, 48vw, 12.75rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  #video-2280 .cs-title {
+    max-width: 28ch;
+    margin: 0;
+    color: var(--bodyTextColorWhite);
+  }
+  #video-2280 .cs-link {
+    font-size: 1.25rem;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0;
+    color: var(--bodyTextColorWhite);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    order: -1;
+  }
+  #video-2280 .cs-link:hover .cs-wrapper {
+    transform: scale(1.1);
+  }
+  #video-2280 .cs-wrapper {
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: -1;
+    transition: transform 0.3s;
+  }
+  #video-2280 .cs-icon {
+    width: 1.5rem;
+    height: auto;
+    display: block;
+  }
+  #video-2280 .cs-background {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  #video-2280 .cs-background:before {
+    /* background color overlay */
+    content: '';
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: 0.62;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  #video-2280 .cs-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Makes img tag act as a background image */
+    object-fit: cover;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #video-2280 .cs-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  #video-2280 .cs-link,
+  #video-2280 .cs-wrapper {
+    order: initial;
+  }
+}
+
+</style>
+                                
+
+
+<!-- ============================================ -->
+<!--                    Video                     -->
+<!-- ============================================ -->
+
+<section id="video-2280">
+    <div class="cs-container">
+        <!-- Left Content Section-->
+        <div class="cs-content" style="display: block;">
+            <h2 class="cs-title">About Abstract Construction LLC</h2>
+            <div class="cs-topper">Build Smarter. Build Better. Build Together.</div>
+            <div class="cs-text" style="color: #fff;">At Abstract Construction LLC, we don’t just build spaces, we transform them. With decades of expertise in high end residential and commercial construction, we bring a new standard of craftsmanship, efficiency, and customer transparency to the commercial construction world.
+            </div>
+<DIV style="margin-top: 30px;">
+            {% include 'components/cta_button.html' %}
+        </DIV>
+
+    </div>
+    <!--Waves Background-->
+    <picture class="cs-background">
+        <source media="(max-width: 600px)" srcset="/assets/images/aboutbg.jpg">
+        <source media="(min-width: 601px)" srcset="/assets/images/aboutbg.jpg">
+        <img loading="lazy" decoding="async" src="/assets/images/aboutbg.jpg" alt="construction" width="1920" height="742" aria-hidden="true">
+    </picture>
+</section>
+                                
+</style>
