@@ -1,11 +1,13 @@
 ---
-title: 'All Around Property Solutions LLC | Trusted Handyman & Property Services in Metro Detroit'
-description: 'Discover top rated handyman and property management services in Metro Detroit with All Around Property Solutions LLC. Fully insured, family owned, and Nextdoor Neighborhood Fave. Call 248-875-1272 to schedule today!'
+title: 'Tenacious Gutter Systems | Get a Free Quote Today'
+description: ' Reach out to Tenacious Gutter Systems for expert gutter installation, repair, and maintenance in Houston. Call, text, or request a free quote online today!'
 permalink: 'contact/'
 eleventyNavigation:
-key: Contact Us
-order: 500
+    key: Contact Us
+    order: 900
+
 ---
+
 
 {% extends "layouts/base.html" %}
 
@@ -186,10 +188,10 @@ order: 500
 
   }
 
-  @media only screen and (min-width: 900px) {
+  @media only screen and (min-width: 920px) {
 
     #cs-contact-490 {
-      padding: clamp(2.25rem, 15vw, 2.75rem) 2rem;
+      padding: clamp(12.25rem, 15vw, 2.75rem) 2rem;
     }
   }
 
@@ -197,7 +199,7 @@ order: 500
   @media only screen and (min-width: 43.75rem) {
     #cs-contact-490 .cs-container {
 
-      margin-top: 150px;
+      
       max-width: 80rem;
       flex-direction: row;
       justify-content: space-between;
@@ -221,7 +223,9 @@ order: 500
     <div class="cs-content">
 
       <h2 class="cs-title">Contact Us</h2>
-      <span class="cs-text" style="margin-top: 50px;">If you need help with landscaping, snow removal, or handyman services, don’t wait. All Around Property Solutions LLC is here to assist you.
+      <span class="cs-text" style="margin-top: 50px;">
+
+Protect your home with the best gutter solutions in Houston. Contact us today for a free estimate!
       </span>
       <!--<p class="cs-text">
                 Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Eu volutpat odio facilisis mauris sit amet massa. Sit amet est placerat in egestas
@@ -233,20 +237,15 @@ order: 500
                 PO Box 15252 Mill Creek, <br>Washington, USA 98082
             </a>-->
       <!--Email-->
-      <span class="cs-header" style="margin-top: 50px;">Email</span>
-      <a href="mailtp:jdsdistinctiveservices@gmail.com" class="cs-link">jdsdistinctiveservices@gmail.com</a>
+      <span class="cs-title" style="margin-top: 50px; display: block;">Email Us</span>
+      <a href="mailtp:erin@tenaciousgutters.com" class="cs-link">erin@tenaciousgutters.com</a>
       <!--Phone-->
-      <span class="cs-header">Phone</span>
-      <a href="tel:{{client.phoneForTel}}" class="cs-link">{{client.phoneFormatted}}</a>
+      <span class="cs-title" style="display: block; margin:50px 0px 10px;">Call or Text 24/7</span>
+      <a href="tel:{{client.phoneForTel}}" class="cs-title">{{client.phoneFormatted}}</a>
 
       <!--Social Buttons-->
-      <div class="cs-social">
-        <a class="cs-social-link" aria-label="visit nextdoor profile" href="">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" id="nextdoor">
-            <path fill="#8BC94D" d="M2.5 3.75C2.08579 3.75 1.75 4.08579 1.75 4.5V7.5C1.75 9.84721 3.65279 11.75 6 11.75H6.75V19.5C6.75 19.9142 7.08579 20.25 7.5 20.25H11.5C11.9142 20.25 12.25 19.9142 12.25 19.5V11.5C12.25 10.2574 13.2574 9.25 14.5 9.25C15.7426 9.25 16.75 10.2574 16.75 11.5V19.5C16.75 19.9142 17.0858 20.25 17.5 20.25H21.5C21.9142 20.25 22.25 19.9142 22.25 19.5V11.5C22.25 7.21979 18.7802 3.75 14.5 3.75C11.7881 3.75 9.40238 5.14326 8.01833 7.25H8C7.58579 7.25 7.25 6.91421 7.25 6.5V4.5C7.25 4.08579 6.91421 3.75 6.5 3.75H2.5Z"></path>
-          </svg>
-       
-        </a>
+      <div class="cs-social" style="margin: 80px 0px 30px; display: block;">
+        {% include 'components/social-links.html' %}
 
       </div>
     </div>

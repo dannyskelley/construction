@@ -1,24 +1,23 @@
 <!-- ============================================ -->
-<!--                  Timeline                    -->
+<!--                   Steps                      -->
 <!-- ============================================ -->
 
+
 <style>
-  /*-- -------------------------- -->
-<---          Timeline          -->
+    /*-- -------------------------- -->
+<---           Steps            -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #timeline-970 {
+    #steps-585 {
         padding: var(--sectionPadding);
-     
-        /* clips the white line through the bullets */
-        overflow: hidden;
+        background-color: #fafafa;
     }
-    #timeline-970 .cs-container {
+    #steps-585 .cs-container {
         width: 100%;
-        /* changes to 1440px at tablet */
-        max-width: 34.375em;
+        /* changes to 1280px at tablet */
+        max-width: 34.375rem;
         margin: auto;
         display: flex;
         flex-direction: column;
@@ -26,165 +25,134 @@
         /* 48px - 64px */
         gap: clamp(3rem, 6vw, 4rem);
     }
-    #timeline-970 .cs-content {
+    #steps-585 .cs-content {
         /* set text align to left if content needs to be left aligned */
-        text-align: center;
+        text-align: left;
         width: 100%;
         display: flex;
         flex-direction: column;
         /* centers content horizontally, set to flex-start to left align */
-        align-items: center;
+        align-items: flex-start;
     }
 
-    #timeline-970 .cs-title {
-        max-width: 18ch;
-        color: var(--bodyTextColor);
-    }
-    #timeline-970 .cs-text {
-        max-width: 32.625rem;
-        color: var(--bodyTextColor);
-        opacity: 0.8;
-    }
-    #timeline-970 .cs-card-group {
-        width: 100%;
+    #steps-585 .cs-card-group {
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        /* 40px - 80px */
-        gap: clamp(2.5rem, 6vw, 5rem);
-        position: relative;
+        gap: 1.25rem;
     }
-    #timeline-970 .cs-card-group:before {
-        /* white line through the bullets */
-        content: "";
-        width: 1px;
-        background: #ccc;
-        opacity: 1;
-        position: absolute;
-        display: block;
-        top: 0;
-        /* send it way down to reach the bottom of the section, and have some overlap so if you add content and the ul gets longer, it will still be at the bottom */
-        bottom: -18.75rem;
-        /* half the width of the bullet */
-        left: 0.375rem;
-    }
-    #timeline-970 .cs-item {
-        width: 100%;
-        max-width: 25rem;
+    #steps-585 .cs-item {
         list-style: none;
-        padding: 0 0 0 3.25rem;
+        min-height: 18.125rem;
+        /* 16px - 24px left & right */
+        padding: 1rem clamp(1rem, 1.8vw, 1.5rem);
+        border-bottom: 1px solid var(--headerColor);
         /* prevents padding and border from affecting height and width */
         box-sizing: border-box;
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
-    #timeline-970 .cs-item:before {
-        /* bullet circle */
-        content: "";
-        width: 0.75rem;
-        height: 0.75rem;
-        background: var(--primaryDark);
-        border-radius: 50%;
-        opacity: 1;
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
+    #steps-585 .cs-item:last-of-type {
+        border: none;
     }
-    #timeline-970 .cs-icon {
-        width: 3.75rem;
-        height: auto;
-        /* 32px - 40px */
-        margin: 0 0 clamp(2rem, 3vw, 2.5rem);
-    }
-    #timeline-970 .cs-h3 {
-        /* 20px - 25px */
-        font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+    #steps-585 .cs-h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
         line-height: 1.2em;
-        font-weight: 700;
-        /* changes to 100% at tablet */
-        width: 80%;
-        margin: 0 0 1rem 0;
-        color: var(--bodyTextColor);
-        position: relative;
+        text-align: left;
+        margin: 0 0 0.75rem 0;
+        color: #333;
+        display: block;
     }
-    #timeline-970 .cs-item-text {
-        /* 14px - 16px */
-        font-size: clamp(1.2rem, 1.5vw, 1.2rem);
+    #steps-585 .cs-item-text {
+        font-size: 1rem;
         line-height: 1.5em;
+        text-align: left;
         margin: 0;
         color: var(--bodyTextColor);
+    }
+    #steps-585 .cs-number {
+        font-size: 3.8125rem;
+        font-weight: 900;
+        line-height: 1.2em;
+        /* auto pushes against other elements in a flexbox, this one forces it to be at the bottom of the flexbox */
+        margin: auto 0 0 0;
+        color: var(--primary);
+        display: block;
     }
 }
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #timeline-970 .cs-container {
-        max-width: 90rem;
+    #steps-585 .cs-container {
+        max-width: 80rem;
     }
-    #timeline-970 .cs-card-group {
+    #steps-585 .cs-card-group {
         flex-direction: row;
+        flex-wrap: wrap;
     }
-    #timeline-970 .cs-card-group:before {
-        width: 100%;
-        height: 1px;
-        top: auto;
-        bottom: 0.375rem;
-        /* these next two properties center the line in the UL */
-        left: 50%;
-        transform: translateX(-50%);
+    #steps-585 .cs-item {
+        width: 48%;
     }
-    #timeline-970 .cs-item {
-        padding: 0 0 4.125rem 0;
-        z-index: 1;
-        min-height: 410px;
-    }
-    #timeline-970 .cs-item::before {
-        top: auto;
-        bottom: 0rem;
-    }
-    #timeline-970 .cs-h3 {
-        width: 100%;
+    #steps-585 .cs-item:nth-of-type(3) {
+        border-bottom: none;
     }
 }
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #steps-585 .cs-card-group {
+        flex-wrap: nowrap;
+    }
+    #steps-585 .cs-item {
+        border-bottom: none;
+        border-right: 1px solid var(--headerColor);
+    }
+}
+
                                 
 </style>
 
-<section id="timeline-970">
-  <div class="cs-container">
-      <div class="cs-content">
-        
-          <h2 class="cs-title">Get a Quote in 3 Easy Steps</h2>
-   
-      </div>
-      <ul class="cs-card-group">
-          <li class="cs-item">
-              <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-salon.svg" alt="icon" class="cs-icon" aria-hidden="true" decoding="async" width="60" height="60">
-              <h3 class="cs-h3">Send Us a Text</h3>
-              <p class="cs-item-text">
-                Reach out to us with your service request and any questions you have.<BR>
+<section id="steps-585">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper" data-aos="fade-up">Our Construction Process</span>
+            <h2 class="cs-title">Easy steps to get started</h2>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <h3 class="cs-h3">Step 1:</h3>
+                <p class="cs-item-text">
+                    <B>Schedule a Consultation</B><BR> Contact Us to discuss your project needs and vision.
 
-                         
-          <a style="margin-top: 20px; " href="tel:{{client.phoneForTel}}" class="cs-button-solid">Text Us Now</a>
-              </p>
-          </li>
-          <li class="cs-item">
-              <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/chat-salon.svg" alt="icon" class="cs-icon" aria-hidden="true" decoding="async" width="60" height="60">
-              <h3 class="cs-h3">Chat With Us</h3>
-              <p class="cs-item-text">
-                We’ll give you a quick call to learn more about your needs and ensure we understand your goals.
-              </p>
-          </li>
-          <li class="cs-item">
-              <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/flower-salon.svg" alt="icon" class="cs-icon" aria-hidden="true" decoding="async" width="60" height="60">
-              <h3 class="cs-h3">Get Your Quote</h3>
-              <p class="cs-item-text">
-                Get a clear, noobligation quote tailored to your property and services.
-              </p>
-          </li>
-   
-      </ul>
-  </div>
+                </p>
+                <span class="cs-number">01</span>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">Step 2</h3>
+                <p class="cs-item-text">
+                    <B>Get a Custom Proposal</B><BR> We’ll provide a detailed, open book estimate with clear pricing and timelines. No surprises, no hidden fees.
+                </p>
+                <span class="cs-number">02</span>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">Step 3</h3>
+                <p class="cs-item-text">
+                    <B>Begin Construction</B><br> Our experienced team gets to work, ensuring on time, on budget delivery with quality craftsmanship at every step.
+                </p>
+                <span class="cs-number">03</span>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">Step 4</h3>
+                <p class="cs-item-text">
+                    <b>Enjoy Your New Space</b> <br>Move into your newly built or renovated space with confidence, knowing it's built to estand the test of time.
+
+                </p>
+                <span class="cs-number">04</span>
+            </li>
+        </ul>
+
+        <DIV style="margin: 0px 0px; text-align: center;"><a class="cs-button-solid" style="margin: auto;" href="/contact">Contact us to get started</a></DIV>      
+    </div>
 </section>
-                              
+                                

@@ -2,475 +2,337 @@
 <!--                   Footer                     -->
 <!-- ============================================ -->
 
-<!--NOTE: Make sure the section above this footer has the same background color as the footer for a seamless trasition between them-->
-
-
 <style>
-    /*-- -------------------------- -->
+  /*-- -------------------------- -->
 <---          Footer            -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-  #cs-footer-1763 {
-    padding: var(--sectionPadding);
 
-    padding-bottom: clamp(1.875rem, 5vw, 3.125rem);
-    /* change this to match the color of the section above the footer */
-    background-color: #fff;
-    overflow: hidden;
-    /* 30px - 50px */
-    position: relative;
-    z-index: 1;
-  }
-  #cs-footer-1763 .cs-card-group {
-    /* reset on tablet */
-    max-width: 34.375rem;
-    margin: 30px auto;
-    /* 60px - 100px*/
-    padding: 0 0 clamp(3.75rem, 7vw, 6.25rem) 0;
-    display: grid;
-    /* 20px - 58px */
-    gap: clamp(1.25rem, 4vw, 3.625rem);
-  }
-  #cs-footer-1763 .cs-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* 16px - 24px */
-    gap: clamp(1rem, 2vw, 1.5rem);
-  }
-  #cs-footer-1763 .cs-picture {
-    padding: 1.5rem;
-    background-color: var(--primaryDark);
-    display: block;
-    border-radius: 5px;
-  }
-  #cs-footer-1763 .cs-icon {
-    width: 2rem;
-    height: auto;
-    display: block;
-  }
-  #cs-footer-1763 .cs-h3 {
-    /* 20px - 25px */
-    font-size: clamp(1.25rem, 2vw, 1.5625rem);
-    font-weight: 700;
-    line-height: 1.2em;
-    margin: 0;
-    color: var(--headerColor);
-  }
-  #cs-footer-1763 .cs-card-info {
-    font-size: 1rem;
-    text-decoration: none;
-    line-height: 1.5em;
-    color: var(--bodyTextColor);
-    display: block;
-  }
-  #cs-footer-1763 .cs-container {
-    width: 100%;
-    /* reset on tablet */
-    max-width: 34.375rem;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    /* 32px - 48px */
-    gap: clamp(2rem, 7vw, 3rem);
-  }
-  #cs-footer-1763 .cs-logo-group {
+  #cs-footer-1339 .cs-logo-group {
     /* takes up all the space, lets the other ul's wrap below it */
     width: 100%;
     position: relative;
     border-radius: 5px;
   }
-  #cs-footer-1763 .cs-logo {
+  #cs-footer-1339 .cs-logo {
     width: 100%;
     max-width: 400px;
     height: auto;
     margin: 0 0 1rem 0;
     display: block;
   }
-  #cs-footer-1763 .cs-text {
-    max-width: 44rem;
-    /* 24px - 40px */
-    margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
-    opacity: 0.8;
-  }
-  #cs-footer-1763 .cs-logo-img {
+
+  #cs-footer-1339 .cs-logo-img {
     width: 100%;
     height: auto;
     max-width: 500px;
   }
-  #cs-footer-1763 .cs-contact {
-    display: grid;
-    gap: 2rem;
-  }
-  #cs-footer-1763 .cs-topper {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
-  }
-  #cs-footer-1763 .cs-contact-link {
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.2em;
-    text-decoration: none;
-    color: var(--headerColor);
-  }
-  #cs-footer-1763 .cs-header {
-    /* 20px - 25px */
-    font-size: clamp(1.25rem, 3vw, 1.5625rem);
-    font-weight: 700;
-    line-height: 1.5em;
-    /* 16px - 24px */
-    margin: 0 0 clamp(1rem, 4vw, 1.5rem) 0;
-    color: var(--headerColor);
-    display: block;
-    position: relative;
-  }
-  #cs-footer-1763 .cs-ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  #cs-footer-1763 .cs-li {
-    list-style: none;
-  }
-  #cs-footer-1763 .cs-link {
-    font-size: 1rem;
-    line-height: 1.5em;
-    text-align: left;
-    text-decoration: none;
-    color: var(--bodyTextColor);
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    transition: color 0.3s;
-  }
-  #cs-footer-1763 .cs-link:hover {
-    color: var(--primaryLight);
-  }
-  #cs-footer-1763 .cs-bottom {
-    width: 100%;
-    max-width: 80rem;
-    /* 60px - 80px */
-    margin: clamp(3.75rem, 7vw, 5rem) auto 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-border-10, #e8e8e8);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-  #cs-footer-1763 .cs-credit,
-  #cs-footer-1763 .cs-bottom-link,
-  #cs-footer-1763 .cs-credit-link {
-    font-size: 1rem;
-    line-height: 1.5em;
-    text-decoration: none;
-    color: var(--bodyTextColor);
-  }
-  #cs-footer-1763 .cs-credit {
-    width: 100%;
-  }
-  #cs-footer-1763 .cs-credit-link {
-    font-size: 1rem;
-    line-height: 1.5em;
-    text-decoration: none;
-    width: auto;
-    margin: 0;
-    display: inline-block;
-    position: relative;
-  }
-  #cs-footer-1763 .cs-credit-link:hover {
-    color: var(--primary);
-  }
-  #cs-footer-1763 .cs-bottom-links {
-    width: 100%;
-    display: flex;
-  }
-  #cs-footer-1763 .cs-bottom-link {
-    display: flex;
-    align-items: center;
-  }
-  #cs-footer-1763 .cs-bottom-link:hover {
-    color: var(--primary);
-  }
-  #cs-footer-1763 .cs-bottom-link:last-of-type:before {
-    /* separator */
-    content: "";
-    width: 1px;
-    height: 0.875rem;
-    margin: 0 0.75rem;
-    background: currentColor;
-    opacity: 1;
-    display: block;
-  }
-  #cs-footer-1763 .cs-graphic {
-    width: 100%;
-    min-width: 120rem;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: 9rem;
-    left: 50%;
-    z-index: -1;
-    transform: translateX(-50%);
-  }
-  #cs-footer-1763 .cs-light {
-    display: block;
-  }
-  #cs-footer-1763 .cs-dark {
-    display: none;
-  }
+    #cs-footer-1339 {
+        padding: var(--sectionPadding);
+        /* 30px - 50px */
+        padding-bottom: clamp(1.875rem, 5vw, 3.125rem);
+        background-color: #1a1a1a;
+        position: relative;
+    }
+    #cs-footer-1339 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        column-gap: 3rem;
+        row-gap: 2.5rem;
+    }
+    #cs-footer-1339 .cs-logo-group {
+        /* takes up all the space, lets the other ul's wrap below it */
+        width: 100%;
+        position: relative;
+    }
+    #cs-footer-1339 .cs-title {
+        font-size: var(--headerFontSize);
+        font-weight: 900;
+        line-height: 1.2em;
+        text-align: inherit;
+        max-width: 43.75rem;
+        margin: 0 0 1rem 0;
+        color: var(--headerColor);
+        position: relative;
+    }
+    #cs-footer-1339 .cs-title {
+        margin: 0 0 2rem 0;
+        max-width: 23ch;
+        color: var(--bodyTextColorWhite);
+    }
+    #cs-footer-1339 .cs-social {
+        display: inline-flex;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+    #cs-footer-1339 .cs-social-link {
+        width: 3rem;
+        height: 3rem;
+        background-color: #484848;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        transition:
+            transform 0.3s,
+            background-color 0.3s;
+    }
+    #cs-footer-1339 .cs-social-link:hover {
+        background-color: var(--primaryLight);
+        transform: translateY(-0.1875rem);
+    }
+    #cs-footer-1339 .cs-social-link:hover .cs-social-img {
+        filter: grayscale(1) brightness(100%);
+    }
+    #cs-footer-1339 .cs-social-img {
+        height: 1.5rem;
+        filter: grayscale(1) brightness(630%);
+        width: auto;
+        display: block;
+    }
+    #cs-footer-1339 .cs-header {
+        font-size: 1.25rem;
+        line-height: 1.5em;
+        font-weight: 700;
+        margin: 0 0 1.5rem 0;
+        color: #fff;
+        display: block;
+        position: relative;
+    }
+    #cs-footer-1339 .cs-ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    #cs-footer-1339 .cs-li {
+        list-style: none;
+    }
+    #cs-footer-1339 .cs-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        text-decoration: none;
+        line-height: 1.5em;
+        text-align: left;
+        color: var(--bodyTextColorWhite);
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        transition: color 0.3s;
+    }
+    #cs-footer-1339 .cs-link:hover {
+        color: var(--primaryLight);
+    }
+    #cs-footer-1339 .cs-icon {
+        width: 1.25rem;
+        height: auto;
+        margin-right: 0.125rem;
+        display: block;
+    }
+    #cs-footer-1339 .cs-bottom {
+        text-align: center;
+        width: 100%;
+        max-width: 80rem;
+        /* 48px - 64px */
+        margin: clamp(1.75rem, 7vw, 4rem) auto 0;
+        /* 28px - 40px */
+        padding-top: clamp(1.75rem, 3vw, 2.5rem);
+        border-top: 1px solid #484848;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+    #cs-footer-1339 .cs-credit,
+    #cs-footer-1339 .cs-bottom-link,
+    #cs-footer-1339 .cs-credit-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        width: auto;
+        margin: 0;
+        color: #bababa;
+        display: inline-block;
+        position: relative;
+        transition: color 0.3s;
+    }
+    #cs-footer-1339 .cs-credit {
+        width: 100%;
+    }
+    #cs-footer-1339 .cs-credit-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        width: auto;
+        margin: 0;
+        color: #bababa;
+        display: inline-block;
+        position: relative;
+    }
+    #cs-footer-1339 .cs-credit-link:hover {
+        color: var(--primary);
+    }
+    #cs-footer-1339 .cs-bottom-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #cs-footer-1339 .cs-bottom-link {
+        display: flex;
+        align-items: center;
+    }
+    #cs-footer-1339 .cs-bottom-link:hover {
+        color: var(--primary);
+    }
+    #cs-footer-1339 .cs-bottom-link:last-of-type:before {
+        /* seperator */
+        content: "";
+        width: 1px;
+        height: 0.875rem;
+        margin: 0 0.75rem;
+        background: currentColor;
+        opacity: 1;
+        display: block;
+    }
 }
-/* Tablet - 600px */
-@media only screen and (min-width: 37.5rem) {
-  #cs-footer-1763 .cs-card-group {
-    max-width: 80rem;
-  }
-  #cs-footer-1763 .cs-container {
-    padding: var(--sectionPadding);
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    max-width: 80rem;
-    grid-template-columns: repeat(12, 1fr);
-  }
-  #cs-footer-1763 .cs-logo-group {
-    grid-column: span 12;
-  }
-  #cs-footer-1763 .cs-ul-wrapper {
-    grid-column: span 4;
-  }
-  #cs-footer-1763 .cs-contact {
-    grid-template-columns: repeat(12, 1fr);
-    grid-column: span 12;
-  }
-  #cs-footer-1763 .cs-table {
-    grid-column: span 12;
-  }
-  #cs-footer-1763 .cs-bottom {
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-  #cs-footer-1763 .cs-credit {
-    text-align: left;
-  }
-  #cs-footer-1763 .cs-bottom-links {
-    justify-content: flex-end;
-  }
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #cs-footer-1339 .cs-container {
+        max-width: 80rem;
+        /* 48px - 120px */
+        column-gap: clamp(3rem, 8vw, 7.5rem);
+        flex-wrap: nowrap;
+    }
+    #cs-footer-1339 .cs-logo-group {
+        width: 45%;
+        max-width: 38.875rem;
+        /* pushes the lists away from it and to the right */
+        margin-right: auto;
+    }
+    #cs-footer-1339 .cs-bottom {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    #cs-footer-1339 .cs-credit {
+        text-align: left;
+    }
+    #cs-footer-1339 .cs-bottom-links {
+        justify-content: flex-end;
+    }
 }
-/* Small Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-  #cs-footer-1763 .cs-card-group {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-  }
-  #cs-footer-1763 .cs-card {
-    grid-column: span 4;
-  }
-  #cs-footer-1763 .cs-logo-group {
-    grid-column: span 4;
-  }
-  #cs-footer-1763 .cs-ul-wrapper {
-    grid-column: span 4;
-  }
-  #cs-footer-1763 .cs-contact {
-    display: flex;
-    flex-direction: column;
-    grid-column: span 4;
-  }
-}
+
                                 
 </style>
 
-<footer id="cs-footer-1763">
-
-    <!-- Logo Group -->
-    <div class="cs-logo-group" style="margin: 0px auto 80px; max-width: 80rem;">
+<footer id="cs-footer-1339">
+  <div class="cs-container">
+      <!-- Logo Group -->
+      <div class="cs-logo-group">
         <a aria-label="go back to home" class="cs-logo" href="">
-            <img class="cs-logo-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/logo_dark.svg" alt="logo" width="240" height="32">
+          <img class="cs-logo-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/logo.png" alt="logo" width="240" height="32">
+      </a><div class="cs-topper">Build smarter. </div>
+          <h2 class="cs-title" style="font-size: 2rem;">Build better. Build together.</h2>
+          <div class="cs-social">
+            <a class="cs-social-link" aria-label="visit facebook profile" href="">
+              <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/facebook-1a.svg" alt="facebook" width="11" height="11">
+          </a>
+
+          <a class="cs-social-link" aria-label="visit facebook profile" href="">
+            <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/google-1a.svg" alt="facebook" width="11" height="11">
         </a>
         
-    </div>
-
-    <!--Contact Info-->
-    <div class="cs-card-group"  style="border-bottom: 1px solid #eee;">
-
-
-
-        
-        <div class="cs-card">
-            <picture class="cs-picture">
-                <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/gym-footer-location-pin.svg" alt="location" loading="lazy" decoding="async" height="32" width="32">
-            </picture>
-            <div class="cs-flex">
-                <h3 class="cs-h3">Location</h3>
-                <span class="cs-card-info">
-                    
-                    {{client.address.lineOne}}<BR>
-                    {{client.address.city}}
-                    {{client.address.state}}
-                    {{client.address.zip}}
-                </span>
-            </div>
-        </div>
-        <div class="cs-card">
-            <picture class="cs-picture">
-                <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/gym-footer-clock.svg" alt="clock" loading="lazy" decoding="async" height="32" width="32">
-            </picture>
-            <div class="cs-flex">
-                <h3 class="cs-h3">Working Hours</h3>
-                <span class="cs-card-info">Monday - Saturday: 10:00 - 20:00 </span>
-                <span class="cs-card-info">Sunday: Closed</span>
-            </div>
-        </div>
-        <div class="cs-card">
-            <picture class="cs-picture">
-                <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/gym-footer-call.svg" alt="phone" loading="lazy" decoding="async" height="32" width="32">
-            </picture>
-            <div class="cs-flex">
-                <h3 class="cs-h3">Contact Us</h3>
-                <a href="tel:{{client.phoneForTel}}" class="cs-card-info">{{client.phoneForTel}} </a>
-                <a href="" class="cs-card-info">{{client.email}}</a>
-            </div>
-        </div>
-        <img class="cs-graphic cs-light" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/long-texture.svg" alt="graphic" height="151" width="1920" loading="lazy" decoding="async">
-        <img class="cs-graphic cs-dark" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/long-texture-dark.svg" alt="graphic" height="151" width="1920" loading="lazy" decoding="async">
-    </div>
-    <div class="cs-container" style="padding-top: 30px;">
-        <!-- Logo Group -->
-
-        <!-- Links -->
-        <div class="cs-ul-wrapper" >
-            <span class="cs-header">{{client.name}}</span>
-            <ul id="cs-expanded" class="cs-ul">
-                {% set navPages = collections.all | eleventyNavigation %}
-
-                {# Loop through all pages with a eleventyNavigation in the frontmatter #}
-                {% for entry in navPages %}
-
-                {# Define a hasChild variable to make it easier to test what navigation items are have child
-                dropdown pages #}
-                {% set hasChild = entry.children.length %}
-
-                {# Check the frontmatter for hideOnMobile/hideOnDesktop. Form a list of classes to be joined when
-                the item is rendered #}
-                {% set hideClasses = [] %}
-                {% if entry.hideOnMobile %}
-                {% set hideClasses = (hideClasses.push("cs-hide-on-mobile"), hideClasses) %}
-                {% endif %}
-                {% if entry.hideOnDesktop %}
-                {% set hideClasses = (hideClasses.push("cs-hide-on-desktop"), hideClasses) %}
-                {% endif %}
-
-                {# If this page is a dropdown, give it the appropriate classes, icons and accessibility attributes
-                #}
-                <li class="cs-li {% if hasChild %} cs-dropdown {% endif %} {{ hideClasses | join(" ") }}">
-
-                    {# If the page has child dropdown pages, render it as a <button> tag with the appropriate
-                        dropdown HTML #}
-                        {% if hasChild %}
-
-                        {# Check to see if the user's current page is one of the child pages. If so, apply the
-                        cs-active class to the dropdown parent #}
-                        {% set activeClass = "" %}
-                        {% for child in entry.children %}
-                        {% if child.url == page.url %}
-                        {% set activeClass = "cs-active" %}
-                        {% endif %}
-                        {% endfor %}
-
-                        {# Render the <button> with the active class, dropdown icon and child links #}
-                            <button class="cs-link cs-dropdown-button {{ activeClass }}" aria-expanded="false"
-                                aria-controls="dropdown-{{ entry.key }}" aria-label="dropdown-{{ entry.key }}">
-                                {{ entry.key }}
-                                <img class="cs-drop-icon" style="filter: brightness(0) invert(1);"
-                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg"
-                                    alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                            </button>
-
-                            {# Dropdowns have another ul/li set up within the parent li, which gets rendered in the
-                            same way as a normal link #}
-                            <ul class="cs-drop-ul" id="dropdown-{{ entry.key }}">
-                                {% for child in entry.children %}
-                                <li class="cs-drop-li" style="padding:5px 30px 5px 0px;">
-                                    <a href="{{ child.url }}" class="cs-link cs-drop-link">{{ child.key }}</a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                            {% else %}
-                            {# Normal pages are rendered as <a> tags, in the normal way you'd expect #}
-                                <a href="{{ entry.url }}"
-                                    class="cs-link {% if entry.url == page.url %} cs-active {% endif %}" {% if
-                                    entry.url==page.url %} aria-current="page" {% endif %}>
-                                    {{ entry.key }}
-                                </a>
-                                {% endif %}
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        <div class="cs-ul-wrapper">
-            <span class="cs-header">Service Areas</span>
-            <ul class="cs-ul">
-                <li class="cs-li">
-                    {{client.serviceAreas.areaOne}}
-                </li>
-                <li class="cs-li">
-                    {{client.serviceAreas.areaOne}}
-                </li>
-                <li class="cs-li">
-                    {{client.serviceAreas.areaOne}}
-                </li>
-                <li class="cs-li">
-                    {{client.serviceAreas.areaOne}}
-                </li>
-                <li class="cs-li">
-                    {{client.serviceAreas.areaOne}}
-                </li>
-                <li class="cs-li">
-                    {{client.serviceAreas.areaOne}}
-                </li>
-                <li class="cs-li">
-                    {{client.serviceAreas.areaOne}}
-                </li>
-                <li class="cs-li">
-                    {{client.serviceAreas.areaOne}}
-                </li>
-            </ul>
-        </div>
-        <div class="cs-contact">
-            <div class="cs-contact-info">
-                <span class="cs-header">Follow Us</span>
-                {% include 'components/social-links.html' %}
-            </div>
-            <div class="cs-contact-info">
-                <span class="cs-topper">Call Us Any Time</span>
-                <a href="tel:{{client.phoneForTel}}" class="cs-contact-link">{{client.phoneForTel}}</a>
-            </div>
+              <a class="cs-social-link" aria-label="visit instagram profile" href="">
+                  <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/instagram-1a.svg" alt="instagram" width="11" height="11">
+              </a>
        
-        </div>
+
+             
+          </div>
+
+          
+      </div>
+      <!-- Links -->
+      <div class="cs-ul-wrapper">
+          <span class="cs-header">Quick Links</span>
+          <ul class="cs-ul">
+            <li class="cs-li">
+              <a class="cs-link" href="">About Us</a>
+          </li>
+              <li class="cs-li">
+                  <a class="cs-link" href="">Our Services</a>
+              </li>
+              <li class="cs-li">
+                <a class="cs-link" href="">Photos of our Work</a>
+            </li>
+
+            <li class="cs-li">
+              <a class="cs-link" href="#top">Scroll to top</a>
+          </li>
+
+          </ul>
+      </div>
+      <div class="cs-ul-wrapper">
+          <!-- Contact Info -->
+          <span class="cs-header">Contact us today</span>
+          <ul class="cs-ul">
+              <li class="cs-li">
+                  <a class="cs-link" href="tel:(618) 771-0767">
+                      <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-white.svg" alt="phone icon" width="24" height="24">
+                      (618) 771-0767
+                  </a>
+              </li>
+              <li class="cs-li">
+                  <a class="cs-link" href="mailto:zach@abstractconstruction.net">
+                      <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/email-white.svg" alt="email icon" width="24" height="24">
+                      zach@abstractconstruction.net
+                  </a>
+              </li>
+              <li class="cs-li">
+                  <!--Make this link go to the google page-->
+                  <a class="cs-link" href="" target="_blank">
+                      <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/pin-white.svg" alt="pin icon" width="24" height="24">
+                     St. Louis, MO
+                  </a>
+              </li>
+          </ul>
+      </div>
+
+      
+  </div>
+
+  <div class="cs-bottom">
+    <span class="cs-credit">
+        © Copyright - <a href="/" class="cs-credit-link" target="_blank">{{client.name}}</a>
+    </span>
+    <div class="cs-bottom-links">
+      <STYLE>
+        .credit {color:white; text-align: left;}
+        .gandalfpill {border:.5px solid #eee; transition: all ease .2s;margin-left:5px;vertical-align:middle;  display: inline-block; background-color: white; padding:0 8px; border-radius: 999px;}
+    .gandalfpill:hover img {filter: grayscale(1) brightness(1000%);transition: all ease .8s;}
+    .gandalfpill:hover {box-shadow:2px 2px #FFF; background-color: black;  transform: translateY(-5px); transition: all ease .2s; ;}
+    .back2top {font-size:2px}
+    </STYLE>
+    <div class="credit">
+        <span style="color: #999; font-size: 12px;">Website by</span>
+       
+        <a target="_blank" class="gandalfpill" href="https://designgandalf.com/"><img style="vertical-align:middle; " loading="lazy" decoding="async" src="/assets/svgs/gandalflogo.svg" alt="logo" height="12"></a>
     </div>
-    <div class="cs-bottom">
-        <span class="cs-credit">
-            © Copyright - <a href="/" class="cs-credit-link" target="_blank">{{client.name}}</a>
-        </span>
-        <div class="cs-bottom-links">
-          <STYLE>
-            .credit {color:white; text-align: left;}
-            .gandalfpill {border:.5px solid #eee; transition: all ease .2s;margin-left:5px;vertical-align:middle;  display: inline-block; background-color: white; padding:0 8px; border-radius: 999px;}
-        .gandalfpill:hover img {filter: grayscale(1) brightness(1000%);transition: all ease .8s;}
-        .gandalfpill:hover {box-shadow:2px 2px #FFF; background-color: black;  transform: translateY(-5px); transition: all ease .2s; ;}
-        .back2top {font-size:2px}
-        </STYLE>
-        <div class="credit">
-            <span style="color: black; font-size: 12px;">Website by</span>
-           
-            <a target="_blank" class="gandalfpill" href="https://designgandalf.com/"><img style="vertical-align:middle; " loading="lazy" decoding="async" src="/assets/svgs/gandalflogo.svg" alt="logo" height="12"></a>
-        </div>
-        </div>
     </div>
+</div>
+
+
 </footer>
-                                
+                              

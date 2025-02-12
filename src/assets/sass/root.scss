@@ -13,13 +13,13 @@
         --primaryLight:  #4eef1a;
         --primary: #4eef1a;
         --primaryDark: black;
-        --headerScroll: black;
+        --headerScroll: #1A1A1A;
         --mobileNav: white;
         --callBg: black;
         --secondary:white;
         --secondaryLight: #001f3f;
         --headerColor: #1a1a1a;
-        --bodyTextColor: #000;
+        --bodyTextColor: rgba(0,0,0,.8);
         --bodyTextColorWhite: #fafbfc;
 
 
@@ -28,7 +28,7 @@
         --navLinkActive:  #E63946 ;
 
         /* 13px - 16px */
-        --topperFontSize: clamp(1.5rem, 1.6vw, 1rem);
+        --topperFontSize: clamp(1.5rem, 1.6vw,2.5rem);
         /* 31px - 49px */
         --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
         --bodyFontSize: 1.4rem;
@@ -41,11 +41,11 @@
     .cs-topper {
         display: block;
         margin-bottom: 0.25rem;
-
+text-transform: uppercase;
         font-size: var(--topperFontSize);
         line-height: 1.2em;
-        font-weight: 700;
-        color: #41EE0D;
+        font-weight: 600;
+        color: var(--primary);
         text-align: inherit;
     }
 
@@ -72,9 +72,9 @@
         text-align: inherit;
     }
 
-    .cs-button-10 {
+    .cs-button-solid {
         text-align: center;
-        font-size: 1rem;
+        font-size: 1.2rem;
         /* 46px - 56px */
         line-height: clamp(2.875rem, 8vw, 3.5rem);
         text-decoration: none;
@@ -86,6 +86,7 @@
         /* prevents padding and border from affecting height and width */
         box-sizing: border-box;
         background-color: var(--primary);
+        
         color:black;
         box-shadow: 4px 4px 0px 0px #1a1a1a;
         display: inline-flex;
@@ -99,15 +100,15 @@
             background-color 0.3s,
             box-shadow 0.3s;
     }
-    .cs-button-10 .cs-icon {
+    .cs-button-solid .cs-icon {
         transition: transform 0.3s;
     }
-    .cs-button-10:hover {
+    .cs-button-solid:hover {
         background-color: #1a1a1a;
         box-shadow: 4px 4px 0px 0px var(--primary);
         color:white;
     }
-    .cs-button-10:hover .cs-icon {
+    .cs-button-solid:hover .cs-icon {
         transform: translateX(0.25rem);
     }
     

@@ -1,190 +1,139 @@
 <!-- ============================================ -->
-<!--                    Hero                      -->
+<!--                    CTA                       -->
 <!-- ============================================ -->
+
 
 <style>
   /*-- -------------------------- -->
-<---           Hero             -->
+<---            CTA             -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-  #hero-1856 {
-    /* 200px - 300px - leaving extra space for the navigation */
-    padding: clamp(12.5rem, 25.95vw, 18.75em) 2rem;
-    /* prevents the topper line from causing an overflow */
-    overflow: hidden;
+  #cta-385 {
+    padding: var(--sectionPadding);
     position: relative;
-    z-index: 1;
+    
   }
-
-  #hero-1856:before {
-    content: "";
+  #cta-385 .cs-background {
     width: 100%;
     height: 100%;
-    background: var(--primaryDark);
-    opacity: 1;
+    opacity: 0.5;
+    background-blend-mode: multiply;
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
   }
-  #hero-1856 .cs-container {
+  #cta-385 .cs-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Makes img tag act as a background image */
+    object-fit: cover;
+  }
+  #cta-385 .cs-container {
     width: 100%;
     max-width: 80rem;
     margin: auto;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 3rem;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
   }
-  #hero-1856 .cs-content {
-    text-align: left;
+  #cta-385 .cs-content {
+    /* set text align to left if content needs to be left aligned */
+    text-align: center;
     width: 100%;
-    max-width: 46.875rem;
+    max-width: 27.125rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    z-index: 21;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: center;
   }
-  #hero-1856 .cs-title {
-    /* 49px - 84px */
-    font-size: clamp(3.0625rem, 6vw, 5.25rem);
-    max-width: 100%;
-    letter-spacing: -2px;
+  #cta-385 .cs-text {
+    margin-bottom: 1rem;
   }
-  #hero-1856 .cs-title,
-  #hero-1856 .cs-text {
-    text-align: left;
-    color: var(--bodyTextColorWhite);
-  }
-  #hero-1856 .cs-text {
+  #cta-385 .cs-text:last-of-type {
     margin-bottom: 2rem;
   }
  
-  #hero-1856 .cs-content-graphic {
-    height: 305%;
-    max-height: 81.25rem;
-    filter: brightness(60%);
-    width: auto;
+  #cta-385 .cs-image-group {
+    /* everything is in ems so we can scale the container down with a font size */
+    font-size: min(2.6vw, .8em);
+    width: 33.9375em;
+    height: 28.75em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #cta-385 .cs-bucket {
+    width: 33.9375em;
+    height: auto;
+    display: block;
+    position: relative;
+  }
+  #cta-385 .cs-bucket img {
+    width: 100%;
+    height: auto;
+  }
+  #cta-385 .cs-powder {
+    width: 30.3125em;
+    height: auto;
+    display: block;
     position: absolute;
-    top: 50%;
-    right: -4rem;
-    left: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
     z-index: -1;
-    transform: translateY(-50%);
-    z-index: -3;
   }
-
-  #hero-1856 .cs-graphic-mid {
+  #cta-385 .cs-powder img {
     width: 100%;
-    min-width: 120rem;
     height: auto;
-    object-fit: cover;
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    z-index: 2;
-    transform: translateX(-50%);
-  }
-
-  #hero-1856 .cs-graphic {
-    width: 100%;
-
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    z-index: 2;
-    transform: translateX(-50%);
-  }
-  #hero-1856 .cs-graphic-dark {
-    display: none;
-  }
-  #hero-1856 .cs-background {
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    /* Overlay on the background image that gets removed at tablet+, in favour of the svg graphic */
-  }
-  #hero-1856 .cs-background:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: #000;
-    /* prevents the cursor from interacting with it */
-    pointer-events: none;
-    opacity: 0.4;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-  #hero-1856 .cs-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  #hero-1856 .cs-background::before {
-    content: none;
-  }
-
-  #hero-1856 .cs-background {
-    background: url("/assets/images/bg.jpg");
-opacity: .2;
-    background-color: black;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* creates the parallax effect */
-  }
-  #hero-1856 .cs-background img {
-    display: none;
   }
 }
-
-/* Large Desktop - 1920px */
-@media only screen and (min-width: 120rem) {
-  #hero-1856 {
-    /* this ties the padding bottom value to the size of the screen width. The wider the image gets the taller it gets, meaning it will get closer and closer to the content. This makes the padding bottom value grow with the screen size so it accounts for the growing height of the svg graphic getting taller */
-    padding-bottom: 14vw;
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #cta-385 .cs-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #cta-385 .cs-content {
+    text-align: left;
+    align-items: flex-start;
+    /* sends it to the right in the 2nd position */
+    order: 2;
+  }
+  #cta-385 .cs-image-group {
+    font-size: min(1.45vw, 1em);
   }
 }
                                 
 </style>
 
-<section id="hero-1856">
+<section id="cta-385"   >
+  <div class="cs-container" >
+      <div class="cs-content" >
+          <span class="cs-topper" data-aos="fade-up">Let’s Build Smarter.</span>
+          <h2 class="cs-title" data-aos="fade-up"> Let’s Build Better.</h2>
 
-  <div class="cs-container">
-      <div class="cs-content">
-          <span class="cs-topper" style="color: white; text-transform: none; letter-spacing: 0px;">Ready to get started?</span>
-          <h1 class="cs-title">Schedule your service today</h1>
+          <a href="" class="cs-button-solid">Let's build together</a>
+      </div>
+      <div class="cs-image-group">
 
-          <a href="" class="cs-button-solid">Call us now</a>
-          </div>
+          <!--Bucket Image-->
+          <picture class="cs-bucket">
+              <source media="(max-width: 600px)" srcset="/assets/images/logo.png">
+              <source media="(min-width: 601px)" srcset="/assets/images/logo.png">
+              <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="bucket" width="543" height="437" aria-hidden="true">
+          </picture>
+      </div>
   </div>
 
-  <!-- Background Image -->
-  <picture class="cs-background">
-      <source media="(max-width: 600px)" srcset="/assets/images/bg.jpg">
-      <source media="(min-width: 601px)" srcset="/assets/images/bg.jpg">
-      <img loading="lazy" decoding="async" src="/assets/images/bg.jpg" alt="field" width="1920" height="1200" aria-hidden="true">
-  </picture>
-
-  <svg class="cs-graphic cs-graphic-light" width="1920" height="188" viewBox="0 0 1920 188" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M1920 45.8671C1835.33 45.8671 1715.47 60.6671 1549.2 104.534C1115.6 218.4 932.267 0.000366211 466.533 0.000366211C218.933 0.000366211 172.8 45.8671 0.133333 45.8671L0 187.934H1920V45.8671Z" fill="#fff"></path>
-</svg>
- </section>
-                             
- 
+</section>
+                              

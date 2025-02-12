@@ -1,6 +1,7 @@
 <!-- ============================================ -->
-<!--                  Services                    -->
+<!--                    Services                  -->
 <!-- ============================================ -->
+
 
 <style>
     /*-- -------------------------- -->
@@ -9,88 +10,121 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #services-886 {
+    #services-1251 {
         padding: var(--sectionPadding);
-        /* clips the svg wave from overflowing */
-        overflow: hidden;
         position: relative;
-        background-color: #fff;
-        z-index: 1;
+        z-index: 10;
     }
-    #services-886 .cs-container {
+    #services-1251 .cs-container {
         width: 100%;
-        /* changes to 1280px at desktop */
-        max-width: 34.375em;
+        max-width: 80rem;
         margin: auto;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        /* 48px - 64px */
+        flex-direction: column;
         gap: clamp(3rem, 6vw, 4rem);
     }
-    #services-886 .cs-content {
+    #services-1251 .cs-content {
         /* set text align to left if content needs to be left aligned */
-        text-align: center;
+        text-align: left;
         width: 100%;
         display: flex;
         flex-direction: column;
         /* centers content horizontally, set to flex-start to left align */
-        align-items: center;
+        align-items: flex-start;
     }
 
-    #services-886 .cs-card-group {
-        width: 100%;
+    #services-1251 .cs-title {
+        max-width: 20ch;
+    }
+    #services-1251 .cs-card-group {
         margin: 0;
         padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
         /* 16px - 20px */
-        gap: clamp(1rem, 2vw, 1.25rem);
-        position: relative;
-        z-index: 1;
+        gap: clamp(1rem, 2.5vw, 1.25rem);
     }
-    #services-886 .cs-item {
-        list-style: none;
+    #services-1251 .cs-item {
         width: 100%;
-        max-width: 25.8125rem;
+        text-align: left;
+        list-style: none;
+        max-height: 300px;
         margin: 0;
         padding: 0;
-    }
-    #services-886 .cs-link {
-        text-align: center;
-        text-decoration: none;
-        width: 100%;
-        height: 26.25rem;
-        padding: 1.25rem;
+        background-color: #000;
+        border-radius: 0.5rem;
+        /* clips background image corners */
+        overflow: hidden;
+        box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.08);
         /* prevents padding and border from affecting height and width */
         box-sizing: border-box;
-        border-radius: 1rem;
-        /* clips img corners around the border */
-        overflow: hidden;
+        grid-column: span 12;
+        grid-row: span 1;
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         justify-content: flex-end;
-        gap: 0.75rem;
         position: relative;
+        z-index: 1;
+        min-height: 300px;
     }
-    #services-886 .cs-h3 {
-        font-size: 1.25rem;
+    #services-1251 .cs-item:hover .cs-item-background img {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+    #services-1251 .cs-item:hover .cs-h3 {
+        color: var(--primary);
+    }
+    #services-1251 .cs-item:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        /* prevents border from affecting height and width */
+        box-sizing: border-box;
+        border-radius: 0.5rem;
+        /* prevents the mouse from interacting with it so when you hover hover the other elements inside the card it doesn't block your mouse from hovering over them */
+        pointer-events: none;
+        opacity: 1;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+    #services-1251 .cs-link {
+        text-decoration: none;
+        /* 125px - 236px */
+        /* padding goes on the link, not the cs-item as is normal. We do this because we want the whole card to be hoverable. So we add the padding to the link tag to create the space inside the card. By adding the space inside the cs-link tag we can make the whole card hoverable since the padding is now contributing to the height and widht of the link */
+        padding: clamp(7.8125rem, 19vw, 14.75rem) 1.5rem 1.5rem;
+    }
+    #services-1251 .cs-h3 {
+        /* 20px - 25px */
+        font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
         line-height: 1.2em;
+        font-weight: bold;
         text-align: inherit;
-        font-weight: 700;
-        margin: 0;
+        margin: 0 0 0.75rem 0;
         color: var(--bodyTextColorWhite);
+        transition: color 0.3s;
+        text-transform: uppercase;
     }
-    #services-886 .cs-item-p {
-        font-size: 1rem;
+    #services-1251 .cs-item-text {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
         line-height: 1.5em;
-        text-align: inherit;
+        max-width: 28.125rem;
         margin: 0;
+        padding: 0;
         color: var(--bodyTextColorWhite);
+      
     }
-    #services-886 .cs-background {
+
+
+    #services-1251 .cs-item-background {
         width: 100%;
         height: 100%;
         display: block;
@@ -98,231 +132,197 @@
         top: 0;
         left: 0;
         z-index: -1;
-        object-fit: cover;
     }
-    #services-886 .cs-background:before {
-        /* gradient overlay */
+    #services-1251 .cs-item-background:before {
+        /* background color overlay */
         content: "";
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            0deg,
-            #000000 10.13%,
-            rgba(0, 0, 0, 0) 40.71%
-        );
-        opacity: 1;
         position: absolute;
         display: block;
+        height: 100%;
+        width: 100%;
+        background: #1a1a1a;
+        opacity: 0.24;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    #services-1251 .cs-item:hover .cs-item-background:after {opacity: 0;}
+    #services-1251 .cs-item-background:after {
+        /* background color overlay */
+        content: "";
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 100%;
+        background: -moz-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            #000000 100%
+        );
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            #000000 100%
+        );
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            #000000 100%
+        );
+        opacity: 0.4;
         bottom: 0;
         left: 0;
-        transition: height 0.3s;
+        z-index: 2;
     }
-    #services-886 .cs-background img {
+    #services-1251 .cs-item-background img {
+        position: absolute;
+        top: 0;
+        left: 0;
         height: 100%;
         width: 100%;
         /* Makes img tag act as a background image */
         object-fit: cover;
-        position: relative;
-        z-index: -1;
-        transition: transform 0.6s;
-    }
-    #services-886 .cs-wave {
-        /* we're stretching the svg wider than the viewport so it's taller and has more of a presence */
-        width: 320%;
-        height: auto;
-        display: block;
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        z-index: -1;
+        transition:
+            transform 0.6s,
+            opacity 0.3s;
     }
 }
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #services-886 .cs-container {
-        max-width: 80rem;
-    }
-    #services-886 .cs-card-group {
+    #services-1251 .cs-item-text {display: none;transition: all ease .5s;}
+
+    #services-1251 .cs-item:hover .cs-item-text {display: block; transition: all 1s;}
+
+    #services-1251 .cs-content {
         flex-direction: row;
-        flex-wrap: wrap;
-        align-items: stretch;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3rem;
     }
-    #services-886 .cs-item {
-        width: 48.9%;
+    #services-1251 .cs-title {
+        margin: 0;
     }
-}
-/* Small Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #services-886 {
-        /* the padding grows with the screen width so as the svg gets taller it doesn't overlap the section */
-        padding-bottom: 14vw;
+    #services-1251 .cs-flex-group {
+        width: 50%;
     }
-    #services-886 .cs-item {
-        width: 30vw;
-    }
-    #services-886 .cs-link:hover .cs-h3,
-    #services-886 .cs-link:focus-within .cs-h3 {
-        color: var(--primary);
-        transform: translateY(0);
-    }
-    #services-886 .cs-link:hover .cs-item-p,
-    #services-886 .cs-link:focus-within .cs-item-p {
-        height: auto;
-        opacity: 1;
-        transform: translateY(0);
-    }
-    #services-886 .cs-link:hover .cs-background:before,
-    #services-886 .cs-link:focus-within .cs-background:before {
-        height: 180%;
-    }
-    #services-886 .cs-link:hover .cs-background img,
-    #services-886 .cs-link:focus-within .cs-background img {
-        transform: scale(1.1);
-    }
-    #services-886 .cs-h3 {
-        /* transform down the same amount as the flex gap */
-        transform: translateY(0.75rem);
-        transition:
-            transform 0.3s,
-            color 0.3s;
-    }
-    #services-886 .cs-item-p {
-        height: 0;
-        opacity: 0;
-        overflow: hidden;
-        transform: translateY(3.125rem);
-        transition:
-            height 0.3s,
-            opacity 0.3s,
-            transform 0.3s;
-    }
-    #services-886 .cs-wave {
-        width: 100%;
-        left: 0;
-        transform: none;
+    #services-1251 .cs-item {
+        grid-column: span 4;
     }
 }
 
                                 
 </style>
 
-<section id="services-886">
+<section id="services-1251">
     <div class="cs-container">
         <div class="cs-content">
-          
-            <h2 class="cs-title">Our Services</h2>
-            
+            <div class="cs-flex-group">
+                <span class="cs-topper" data-aos="fade-up">Our Core</span>
+                <h2 class="cs-title">Commercial Construction Services</h2>
+            </div>
+            <p class="cs-text">
+             
+
+                <b>We’re not just builders</b> - we’re your trusted construction partner.
+
+            </p>
         </div>
         <ul class="cs-card-group">
+          
+            <li class="cs-item" >
+                <a href="" class="cs-link">
+                    <h3 class="cs-h3">Office Renovations</h3>
+                    <p class="cs-item-text">
+                        Modernizing office spaces for businesses and building owners.
+                    </p>
+                </a>
+                <picture class="cs-item-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/1.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/1.jpg">
+                    <img decoding="async" src="/assets/images/1.jpg" alt="construction" width="413" height="374" aria-hidden="true">
+                </picture>
+            </li>
+        
             <li class="cs-item">
                 <a href="" class="cs-link">
-                    <h3 class="cs-title" style="color: white; font-size: 34px;">Installation</h3>
-                    <p class="cs-item-p">
-                        Installation of new roofs for residential, commercial, or industrial properties.
+                    <h3 class="cs-h3">Commercial Remodeling</h3>
+                    <p class="cs-item-text">
+                        Office buildouts, storefronts, restrooms, and common areas.
                     </p>
-                    <!--Backgorund Image-->
-                    <picture class="cs-background">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="/assets/images/1.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="/assets/images/1.jpg">
-                        <img loading="lazy" decoding="async" src="/assets/images/1.jpg" alt="person" width="1280" height="568">
-                    </picture>
                 </a>
+                <picture class="cs-item-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/2.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/2.jpg">
+                    <img decoding="async" src="/assets/images/2.jpg" alt="construction" width="413" height="374" aria-hidden="true">
+                </picture>
             </li>
+        
+            <li class="cs-item">
+                <a href="" class="cs-link">
+                    <h3 class="cs-h3">Commercial Design Build</h3>
+                    <p class="cs-item-text">
+                        Streamlined construction from concept to completion.
+                    </p>
+                </a>
+                <picture class="cs-item-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/3.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/3.jpg">
+                    <img decoding="async" src="/assets/images/3.jpg" alt="construction" width="413" height="374" aria-hidden="true">
+                </picture>
+            </li>
+        
+            <li class="cs-item">
+                <a href="" class="cs-link">
+                    <h3 class="cs-h3">Industrial Development</h3>
+                    <p class="cs-item-text">
+                        High performance industrial spaces tailored to your operations.
+                    </p>
+                </a>
+                <picture class="cs-item-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/4.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/4.jpg">
+                    <img decoding="async" src="/assets/images/4.jpg" alt="construction" width="413" height="374" aria-hidden="true">
+                </picture>
+            </li>
+        
+           
+        
+            <li class="cs-item">
+                <a href="" class="cs-link">
+                    <h3 class="cs-h3">Building Maintenance</h3>
+                    <p class="cs-item-text">
+                        Long term upkeep solutions for property managers and owners.
+                    </p>
+                </a>
+                <picture class="cs-item-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/6.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/6.jpg">
+                    <img decoding="async" src="/assets/images/6.jpg" alt="construction" width="413" height="374" aria-hidden="true">
+                </picture>
+            </li>
+
             
-            
             <li class="cs-item">
                 <a href="" class="cs-link">
-                    <h3 class="cs-title" style="color: white; font-size: 34px;">Repairs</h3>
-                    <p class="cs-item-p">
-                        Regular mowing, edging, and trimming to keep your lawn looking neat and healthy.
+                    <h3 class="cs-h3">Building Maintenance</h3>
+                    <p class="cs-item-text">
+                        Long term upkeep solutions for property managers and owners.
                     </p>
-                    <!--Backgorund Image-->
-                    <picture class="cs-background">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="/assets/images/2.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="/assets/images/2.jpg">
-                        <img loading="lazy" decoding="async" src="/assets/images/2.jpg" alt="person" width="1280" height="568">
-                    </picture>
                 </a>
+                <picture class="cs-item-background">
+                    <source media="(max-width: 600px)" srcset="/assets/images/6.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/6.jpg">
+                    <img decoding="async" src="/assets/images/6.jpg" alt="construction" width="413" height="374" aria-hidden="true">
+                </picture>
             </li>
-
-
-
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <h3 class="cs-title" style="color: white; font-size: 34px;">Replacement</h3>
-                    <p class="cs-item-p">
-                        Regular mowing, edging, and trimming to keep your lawn looking neat and healthy.
-                    </p>
-                    <!--Backgorund Image-->
-                    <picture class="cs-background">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="/assets/images/3.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="/assets/images/3.jpg">
-                        <img loading="lazy" decoding="async" src="/assets/images/3.jpg" alt="person" width="1280" height="568">
-                    </picture>
-                </a>
-            </li>
-
-
-
-
-
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <h3 class="cs-title" style="color: white; font-size: 34px;">Maintenance</h3>
-                    <p class="cs-item-p">
-                        Regular mowing, edging, and trimming to keep your lawn looking neat and healthy.
-                    </p>
-                    <!--Backgorund Image-->
-                    <picture class="cs-background">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="/assets/images/4.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="/assets/images/4.jpg">
-                        <img loading="lazy" decoding="async" src="/assets/images/4.jpg" alt="person" width="1280" height="568">
-                    </picture>
-                </a>
-            </li>
-
-
-
-
-
-            <li class="cs-item">
-                <a href="" class="cs-link">
-                    <h3 class="cs-title" style="color: white; font-size: 34px;">Inspections</h3>
-                    <p class="cs-item-p">
-                        Identifies issues early, such as moisture buildup, structural weaknesses, or potential hazards.
-                    </p>
-                    <!--Backgorund Image-->
-                    <picture class="cs-background">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="/assets/images/5.jpg">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="/assets/images/5.jpg">
-                        <img loading="lazy" decoding="async" src="/assets/images/5.jpg" alt="person" width="1280" height="568">
-                    </picture>
-                </a>
-            </li>
-
-
-
-
-
-
-
+        
         </ul>
-        <a href="" class="cs-button-solid">Book us Now</a>
+        {% include 'components/cta_button.html' %}        
     </div>
-    <!--Change the svg path fill color to whatever color the section below is so you can match it and create the illusion it is all one piece-->
-    <svg class="cs-wave" width="1920" height="179" viewBox="0 0 1920 179" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M1920 179V91.3463C1835.33 91.3463 1715.47 76.615 1549.2 32.9521C1299.48 -32.3214 1132.77 12.1006 947.32 61.5167C810.762 97.9044 664.042 137 466.533 137C331.607 137 256.468 123.447 188.082 111.113C130.974 100.812 78.5746 91.3609 0 91.3609V179H1920Z" fill="white"/>
-    </svg>
+    
+
 </section>
                                 
