@@ -1049,13 +1049,40 @@
 </header>
 
 <script>
-    // tertiary nav toggle code
+
+// Select all tertiary dropdown elements
 const tertiaryDrop = Array.from(document.querySelectorAll('#cs-navigation .cs-drop3-main'));
 
+// Select all anchor links within the navigation
+const anchorLinks = Array.from(document.querySelectorAll('#cs-navigation a[href*="#"]'));
+
+// Handle tertiary dropdown toggles
 for (const item of tertiaryDrop) {
     item.addEventListener('click', (e) => {
         e.stopPropagation();
         item.classList.toggle('drop3-active');
+    });
+}
+
+// Handle anchor link clicks
+for (const link of anchorLinks) {
+    link.addEventListener('click', () => {
+        // Find the parent dropdown if it exists
+        const parentDropdown = link.closest('.cs-drop3-main');
+        if (parentDropdown) {
+            parentDropdown.classList.remove('drop3-active');
+        }
+        
+        // Close any other open dropdowns
+        tertiaryDrop.forEach(dropdown => {
+            dropdown.classList.remove('drop3-active');
+        });
+        
+        // If there's a mobile menu element, close it
+        const mobileMenu = document.querySelector('.cs-active'); // Adjust selector as needed
+        if (mobileMenu) {
+            mobileMenu.classList.remove('cs-active');
+        }
     });
 }
                                 
