@@ -1,315 +1,171 @@
 <!-- ============================================ -->
-<!--                    Hero                      -->
+<!--                   Banner                     -->
 <!-- ============================================ -->
 
 <style>
-    /*-- -------------------------- -->
-  <---           Hero             -->
-  <--- -------------------------- -*/
-  
-  /* Mobile - 360px */
-  
-  #cs-navigation {
+  /*-- -------------------------- -->
+<---          Banner            -->
+<--- -------------------------- -*/
 
-        background: var(--headerScroll);
-    }
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #banner-2285 {
+    padding: var(--sectionPadding);
+    /* 190px - 280px */
+    padding-top: clamp(11.875rem, 25vw, 17.5rem);
+    padding-bottom: 0rem;
+    /* clips the line from causing overflow issues for going off screen */
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  #banner-2285 .cs-container {
+    text-align: center;
+    width: 100%;
+    max-width: 80rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  #banner-2285 .cs-int-title {
+    /* 39px - 61px */
+    font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+    font-weight: 700;
+    line-height: 1.2em;
+    text-align: inherit;
+    margin: 0 0 1rem;
+    color: var(--bodyTextColorWhite);
+    position: relative;
+  }
+  #banner-2285 .cs-text {
+    text-align: left;
+    /* 60px - 120px */
+    margin-bottom: clamp(3.75rem, 7vw, 7.5rem);
+    max-width: 43.75rem;
+    color: var(--bodyTextColorWhite);
+  }
+  #banner-2285 .cs-breadcrumbs {
+    padding: clamp(1rem, 3vw, 1.5rem) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  #banner-2285 .cs-breadcrumbs:before {
+    content: '';
+    width: 200vw;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.12;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+  #banner-2285 .cs-breadcrumbs:after {
+    content: '';
+    width: 200vw;
+    height: 100%;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+  #banner-2285 .cs-link {
+    font-size: 1rem;
+    line-height: 1.2em;
+    text-decoration: none;
+    color: var(--bodyTextColorWhite);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #banner-2285 .cs-link:last-of-type {
+    /* remove the chevron on the last list item */
+  }
+  #banner-2285 .cs-link:last-of-type::after {
+    display: none;
+  }
+  #banner-2285 .cs-link:after {
+    /* chevron */
+    content: "";
+    width: 0.0625rem;
+    height: 1.5rem;
+    margin: 0 1rem;
+    background-color: #88898B;
+    position: relative;
+    display: block;
+  }
+  #banner-2285 .cs-link.cs-active {
+    color: var(--primary);
+  }
+  #banner-2285 .cs-background {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  #banner-2285 .cs-background:before {
+    /* gradient overlay */
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-180deg, #000 15%, rgba(0,0, 0, 0.90) 58.94%, rgba(0, 0, 0, .9) 96.68%);
+    opacity: 0.62;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  #banner-2285 .cs-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Makes img tag act as a background image */
+    object-fit: cover;
+    z-index: -1;
+  }
+}
+                                
+</style>
 
-  @media only screen and (min-width: 0rem) {
+<div id="banner-2285">
+  <div class="cs-container">
+   
+      <div class="cs-title" style="color: white; text-align: left;">High End Craftsmanship. Transparent Pricing. Superior Results.</div>
+      <span class="cs-topper" >Our Services</span>
+      <p class="cs-text">
+        Your business or home deserves more than just another contractor. It deserves a partner who understands your vision and delivers beyond expectations. At Abstract Construction LLC, we offer a full range of commercial, industrial, and residential construction services designed to elevate your space, increase efficiency, and improve long-term value.
 
-    #hero-2219 .cs-topper {background-color: var(--primaryDark); display: inline-block; border-radius: 3px; color: white; padding: 5px 10px; font-size: 14px; text-transform: uppercase;}
-    #hero-2219 .cs-graphic {
-      width: 101%;
-     
-      height: auto;
-      object-fit: cover;
-      position: absolute;
-      bottom: -1px;
-      left: 50%;
-      z-index: 2;
-      transform: translateX(-50%);
-    }
-    #hero-2219 {
-      background-color: #000;
-      overflow: hidden;
-      position: relative;
-      z-index: 998;
-      
-    }
-    #hero-2219 .cs-container {
-      width: 100%;
-      max-width: 120rem;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      /* 48px - 64px */
-      gap: clamp(3rem, 7vw, 4rem);
-      position: relative;
-    }
-    #hero-2219 .cs-content {
-      /* top changes to 100px on tablet */
-      /* bottom 60px - 180px */
-      padding: 8.5rem 2rem clamp(3.75rem, 12vw, 11.25rem);
-      box-sizing: border-box;
-      
-      flex-direction: column;
-      z-index: 99;
-    }
-    #hero-2219 .cs-author {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-    #hero-2219 .cs-name {
-      font-size: 1.5625rem;
-      font-weight: 700;
-      line-height: 1.2em;
-      color: var(--bodyTextColorWhite);
-      display: block;
-    }
-    #hero-2219 .cs-job {
-      font-size: 1rem;
-      line-height: 1.2em;
-      margin: 0 0 1rem;
-      color: var(--bodyTextColorWhite);
-      display: block;
-    }
-    #hero-2219 .cs-title {
-      /* 49px - 61px */
-      font-size: clamp(3.0625rem, 6vw, 3.8125rem);
-  
-      color: var(--bodyTextColorWhite);
-    }
-    #hero-2219 .cs-text {
-      /* 16px - 20px */
-      font-size: clamp(1.2rem, 2vw, 1.25rem);
-  
-      color: var(--bodyTextColorWhite);
-    }
-    #hero-2219 .cs-video-group {
-      width: 100%;
-      /* 180px - 320px */
-      height: clamp(11.25rem, 40vw, 20rem);
-      /* 48px - 80px */
-      margin-top: clamp(3rem, 11vw, 5rem);
-      display: flex;
-      justify-content: flex-end;
-      position: relative;
-    }
-    #hero-2219 .cs-video-group:hover {
-      cursor: pointer;
-    }
-    #hero-2219 .cs-video-group:hover .cs-play {
-      transform: translateY(-50%) scale(1.1);
-    }
-    #hero-2219 .cs-video-group video,
-    #hero-2219 .cs-video-group .cs-picture {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    #hero-2219 .cs-video-group video img,
-    #hero-2219 .cs-video-group .cs-picture img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    #hero-2219 .cs-wrapper {
-      width: 88%;
-      position: relative;
-      z-index: 1;
-    }
-    #hero-2219 .cs-play {
-      /* 80px - 120px */
-      width: clamp(5rem, 10vw, 7.5rem);
-      height: auto;
-      padding: 0;
-      background-color: transparent;
-      border: none;
-      pointer-events: none;
-      position: absolute;
-      top: 50%;
-      left: calc(clamp(5rem, 10vw, 7.5rem)*-0.5);
-      transform: translateY(-50%);
-      transform-origin: center;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-    #hero-2219 .cs-play:hover {
-      cursor: pointer;
-    }
-    #hero-2219 .cs-play.cs-hide {
-      opacity: 0;
-      transform: translateY(-50%) scale(0);
-    }
-    #hero-2219 .cs-play img {
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-      overflow: hidden;
-    }
-    #hero-2219 .cs-background {
-      width: 100%;
-      height: 99vh;
-      min-height: 750px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      background-color: white;
-    }
-    #hero-2219 .cs-background img {
-      width:auto;
-     height: 100vh;
-     min-height: 790px;
-      object-fit: cover;
-      margin:0px 0px 0px calc(50% - 900px);
-      opacity: .5;
-    }
-    #hero-2219 .cs-background::before {
-      content: "";
-      width: 100%;
-      height: 95vh;
-      background: linear-gradient(0deg, #7DA3D0 20%, rgba(0,0, 0, 0.00) 58.94%, rgba(0, 0, 0, .0) 96.68%);
-  opacity: .0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 9999;
-    }
-  }
-  
-  
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48rem) {
-    #hero-2219 .cs-number {text-align: center;}
-  
-    #hero-2219 .cs-background img {
-      width:auto;
-     height: 100vh;
-     min-height: 870px;
-      object-fit: cover;
-      margin:0px 0px 0px calc(50% - 750px);
-      
-    }
-    #hero-2219 .cs-content {
-      text-align: left;
-      width: 97%;
-      max-width: 90%;
-      padding-top: 9.25rem;
-      align-items: flex-start;
-      min-height: 500px;
-      margin: 0px;
-    }
-  
-    #hero-2219 .cs-author {
-      position: absolute;
-      /* 60px - 120px */
-      bottom: clamp(3.75rem, 12vw, 7.5rem);
-      left: 7.5rem;
-    }
-    #hero-2219 .cs-job {
-      margin: 0;
-    }
-  }
-    @media only screen and (min-width: 780px) {
-    #hero-2219 .cs-background img {
-      width:auto;
-     height: 100vh;
-     min-height: 870px;
-      object-fit: cover;
-      margin:0px 0px 0px calc(50% - 900px);
-    }
-   
-  }
-  /* Large Desktop - 1300px */
-  @media only screen and (min-width: 60.25rem) {
-   
-    #hero-2219 .cs-graphic {
-      width: 100%;
-     
-      height: auto;
-      object-fit: cover;
-      position: absolute;
-      bottom: -1px;
-      left: 50%;
-      z-index: 2;
-      transform: translateX(-50%);
-    }
-    #hero-2219 .cs-content {
-    width: 99%;
-      box-sizing: content-box;
-      /* 16px - 170px */
-      margin: 0px auto;
-      padding-top: 120px;
-      
-    }
-    #hero-2219 {height: 85vh;}
-    #hero-2219 .cs-background {height: 85vh; min-height: 200px; overflow: hidden;}
-    #hero-2219 .cs-background img {
-      width:100%;
-     height: 110vh;
-     min-height: 930px;
-      object-fit: cover;
-      margin:0px 0px 0px 0px;
-      opacity: 1;
-    }
-  
-  }
-  
-  @media only screen and (min-width:1500px) {
-   
-   #hero-2219 .cs-graphic {
-     width: 100%;
-    
-     height: auto;
-     object-fit: cover;
-     position: absolute;
-     bottom: -1px;
-     left: 50%;
-     z-index: 2;
-     transform: translateX(-50%);
-   }
-   #hero-2219 .cs-content {
-   width: 70%;
-     box-sizing: content-box;
-     /* 16px - 170px */
-     margin: 0px auto;
-     padding-top:160px;
-     
-   }
-  }
-                                  
-  </style>
-  
-  <section id="hero-2219">
-    <svg class="cs-graphic cs-graphic-light" width="1920" height="188" viewBox="0 0 1920 188" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M1920 45.8671C1835.33 45.8671 1715.47 60.6671 1549.2 104.534C1115.6 218.4 932.267 0.000366211 466.533 0.000366211C218.933 0.000366211 172.8 45.8671 0.133333 45.8671L0 187.934H1920V45.8671Z" fill="#fff"></path>
-    </svg>
-    <div class="cs-container">
-        <div class="cs-content">
-            <h1 data-aos="fade-up" style="display: block;"><span class="cs-topper" style="display: inline;">{{client.address.city}}  Local</span>
-            <span class="cs-title" data-aos="fade-up" style="color: var(--primaryDark); display: block;">{{client.service}} Services</span></h1>
-      
-            <p class="cs-text" style="color: #000;">
-              We provide expert services to make your life easier      </p>
-              
-            <a style="margin-top: 30px;" href="tel:{{client.phoneForTel}}" class="cs-button-solid">Get Your Free Quote</a>
-             
-  
-        
-        </div>
-        
-       
-        <picture class="cs-background">
-          
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="/assets/images/bg2.jpg">
-            <!--Tablet and above Image-->
-            <source media="(min-width: 601px)" srcset="/assets/images/bg2.jpg">
-            <img loading="lazy" decoding="async" src="/assets/images/bg2.jpg" alt="photographer" width="1280" height="568">
-        </picture>
-        
-    </div>
-  
-  </section>
-  
+      </p>
+      <div class="cs-breadcrumbs">
+          <a href="/" class="cs-link">Home</a>
+          <a href="/services" class="cs-link cs-active">Services</a>
+      </div>
+  </div>
+  <!--Background Image-->
+  <picture class="cs-background">
+      <!--Mobile Image-->
+      <source media="(max-width: 600px)" srcset="/assets/images/servicesbanner.jpg">
+      <!--Tablet and above Image-->
+      <source media="(min-width: 601px)" srcset="/assets/images/servicesbanner.jpg">
+      <img decoding="async" src="/assets/servicesbanner.jpg" alt="construction" width="1280" height="568" aria-hidden="true">
+  </picture>
+</div>
+                              
