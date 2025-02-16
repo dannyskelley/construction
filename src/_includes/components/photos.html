@@ -362,46 +362,52 @@
                                 
 
 <script>
-    class GalleryFilter {
-        filtersSelector = '.cs-button'
-        imagesSelector = '.cs-gallery'
-        activeClass = 'cs-active'
-        hiddenClass = 'cs-hidden'
+  class GalleryFilter {
+      filtersSelector = '.cs-button';
+      imagesSelector = '.cs-gallery';
+      activeClass = 'cs-active';
+      hiddenClass = 'cs-hidden';
 
-        constructor() {
-            const $filters = document.querySelectorAll(this.filtersSelector)
-            this.$activeFilter = $filters[0]
-            this.$images = document.querySelectorAll(this.imagesSelector)
+      constructor() {
+          const $filters = document.querySelectorAll(this.filtersSelector);
+          this.$activeFilter = $filters[0];
+          this.$images = document.querySelectorAll(this.imagesSelector);
 
-            this.$activeFilter.classList.add(this.activeClass)
+          if (!this.$activeFilter || this.$images.length === 0) {
+              console.error("GalleryFilter: No filters or images found.");
+              return;
+          }
 
-            for (const $filter of $filters) {
-            $filter.addEventListener('click', () => this.onClick($filter))
-            }
-        }
+          this.$activeFilter.classList.add(this.activeClass);
 
-        onClick($filter) {
-            this.filter($filter.dataset.filter)
+          for (const $filter of $filters) {
+              $filter.addEventListener('click', () => this.onClick($filter));
+          }
+      }
 
-            const { activeClass } = this
+      onClick($filter) {
+          if ($filter === this.$activeFilter) return; // Prevents unnecessary re-filtering
 
-            this.$activeFilter.classList.remove(activeClass)
-            $filter.classList.add(activeClass)
+          this.filter($filter.dataset.filter);
 
-            this.$activeFilter = $filter
-        }
+          const { activeClass } = this;
+          this.$activeFilter.classList.remove(activeClass);
+          $filter.classList.add(activeClass);
+          this.$activeFilter = $filter;
+      }
 
-        filter(filter) {
-            const showAll = filter == 'all'
-            const { hiddenClass } = this
+      filter(filter) {
+          const showAll = filter === 'all';
+          const { hiddenClass } = this;
 
-            for (const $image of this.$images) {
-            const show = showAll || $image.dataset.category == filter
-            $image.classList.toggle(hiddenClass, !show)
-            }
-        }
-        }
+          for (const $image of this.$images) {
+              const show = showAll || $image.dataset.category === filter;
+              $image.classList.toggle(hiddenClass, !show);
+          }
+      }
+  }
 
-    new GalleryFilter()
-                                
+  document.addEventListener("DOMContentLoaded", () => {
+      new GalleryFilter();
+  });
 </script>
