@@ -7,6 +7,7 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
+  .mobileHide {display: none;}
   #gallery-2281 {
     padding: var(--sectionPadding);
     overflow: hidden;
@@ -51,7 +52,7 @@
   }
   #gallery-2281 .cs-button-group {
     margin: 0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -233,6 +234,7 @@
 }
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
+  .mobileHide {display: flexbox;}
   #gallery-2281:before {
     width: 100vw;
     /* 395px - 445px */
@@ -246,6 +248,7 @@
   }
   #gallery-2281 .cs-button-group {
     border-bottom: 1px solid #E7E7E8;
+    display: flex;
   }
   #gallery-2281 .cs-button {
     padding-bottom: 1.25rem;
@@ -317,6 +320,7 @@
                 <button class="cs-button" data-filter="one">
                     All
                 </button>
+               
                 <button class="cs-button" data-filter="two">
                     Commercial Construction
                 </button>
@@ -326,6 +330,7 @@
                 <button class="cs-button" data-filter="four">
                     Residential Construction
                 </button>
+             
             </div>
         </div>
         <div class="cs-gallery-wrapper">
@@ -362,52 +367,46 @@
                                 
 
 <script>
-  class GalleryFilter {
-      filtersSelector = '.cs-button';
-      imagesSelector = '.cs-gallery';
-      activeClass = 'cs-active';
-      hiddenClass = 'cs-hidden';
+    class GalleryFilter {
+        filtersSelector = '.cs-button'
+        imagesSelector = '.cs-gallery'
+        activeClass = 'cs-active'
+        hiddenClass = 'cs-hidden'
 
-      constructor() {
-          const $filters = document.querySelectorAll(this.filtersSelector);
-          this.$activeFilter = $filters[0];
-          this.$images = document.querySelectorAll(this.imagesSelector);
+        constructor() {
+            const $filters = document.querySelectorAll(this.filtersSelector)
+            this.$activeFilter = $filters[0]
+            this.$images = document.querySelectorAll(this.imagesSelector)
 
-          if (!this.$activeFilter || this.$images.length === 0) {
-              console.error("GalleryFilter: No filters or images found.");
-              return;
-          }
+            this.$activeFilter.classList.add(this.activeClass)
 
-          this.$activeFilter.classList.add(this.activeClass);
+            for (const $filter of $filters) {
+            $filter.addEventListener('click', () => this.onClick($filter))
+            }
+        }
 
-          for (const $filter of $filters) {
-              $filter.addEventListener('click', () => this.onClick($filter));
-          }
-      }
+        onClick($filter) {
+            this.filter($filter.dataset.filter)
 
-      onClick($filter) {
-          if ($filter === this.$activeFilter) return; // Prevents unnecessary re-filtering
+            const { activeClass } = this
 
-          this.filter($filter.dataset.filter);
+            this.$activeFilter.classList.remove(activeClass)
+            $filter.classList.add(activeClass)
 
-          const { activeClass } = this;
-          this.$activeFilter.classList.remove(activeClass);
-          $filter.classList.add(activeClass);
-          this.$activeFilter = $filter;
-      }
+            this.$activeFilter = $filter
+        }
 
-      filter(filter) {
-          const showAll = filter === 'all';
-          const { hiddenClass } = this;
+        filter(filter) {
+            const showAll = filter == 'all'
+            const { hiddenClass } = this
 
-          for (const $image of this.$images) {
-              const show = showAll || $image.dataset.category === filter;
-              $image.classList.toggle(hiddenClass, !show);
-          }
-      }
-  }
+            for (const $image of this.$images) {
+            const show = showAll || $image.dataset.category == filter
+            $image.classList.toggle(hiddenClass, !show)
+            }
+        }
+        }
 
-  document.addEventListener("DOMContentLoaded", () => {
-      new GalleryFilter();
-  });
+    new GalleryFilter()
+                                
 </script>
