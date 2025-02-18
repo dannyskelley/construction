@@ -253,7 +253,13 @@ background: var(--headerScroll);
       </div>
     </div>
     <!-- Form -->
-    <form netlify id="cs-form-490" name="Contact Form" method="post">
+    <form netlify  netlify-honeypot="bot-field"
+    data-netlify="true" id="cs-form-490" name="Contact Form" method="post">
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
       <label class="cs-label" style="margin-bottom: 60px;">
         Name
         <input class="cs-input" required type="text" id="name-490" name="name" placeholder="">

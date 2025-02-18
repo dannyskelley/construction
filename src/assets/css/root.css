@@ -2,6 +2,10 @@
 /*-- -------------------------- -->
 <---        Core Styles         -->
 <--- -------------------------- -*/
+.hidden {
+  display: none;
+}
+
 * {
   transition: all ease 0.3s;
 }
