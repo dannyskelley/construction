@@ -14,94 +14,484 @@ eleventyNavigation:
 
 {% block head %}
 <style>
+  /* ============================ */
+  /*       Contact Page           */
+  /* ============================ */
   #cs-navigation { background: var(--headerScroll); }
-  .contact-hero {
-    background: #1a1a1a;
+
+  /* Hero */
+  #contact-hero {
+    position: relative;
+    padding: clamp(8rem, 14vw, 11rem) 1.25rem clamp(4rem, 7vw, 6rem);
+    background: linear-gradient(rgba(10,10,10,.78), rgba(10,10,10,.82)),
+                url('/assets/images/contactform.jpg') center/cover no-repeat;
     color: #fff;
-    padding: clamp(7rem, 14vw, 10rem) 1.25rem clamp(3rem, 6vw, 4rem);
     text-align: center;
   }
-  .contact-hero .topper {
+  #contact-hero .ch-inner { max-width: 56rem; margin: 0 auto; }
+  #contact-hero .ch-topper {
+    display: inline-block;
     color: var(--primary);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: .08em;
-    font-size: .85rem;
-    display: inline-block;
-    margin-bottom: .75rem;
+    letter-spacing: .12em;
+    font-size: clamp(.8125rem, 1.4vw, 1rem);
+    margin-bottom: 1rem;
   }
-  .contact-hero h1 {
-    font-size: clamp(2rem, 5vw, 3.25rem);
-    line-height: 1.15;
-    margin: 0 0 1rem;
+  #contact-hero h1.ch-title {
+    color: #fff;
+    font-size: clamp(2rem, 5.5vw, 3.75rem);
+    line-height: 1.1;
+    margin: 0 0 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.01em;
   }
-  .contact-hero p { max-width: 42rem; margin: 0 auto 1.5rem; color: #ddd; font-size: 1.05rem; }
-  .contact-hero .ch-actions { display: inline-flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
-  .contact-hero a {
-    display: inline-flex; align-items: center; gap: .5rem;
-    text-decoration: none; font-weight: 700; padding: .9rem 1.25rem;
-    border-radius: 4px; font-size: 1rem;
+  #contact-hero h1.ch-title .accent { color: var(--primary); }
+  #contact-hero .ch-sub {
+    color: #e5e5e5;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    line-height: 1.55;
+    max-width: 44rem;
+    margin: 0 auto 2rem;
   }
-  .contact-hero .ch-call { background: var(--primary); color: #000; }
-  .contact-hero .ch-email { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
-  .contact-hero .ch-call:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(78,239,26,.35); }
+  #contact-hero .ch-actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  #contact-hero .ch-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    text-decoration: none;
+    font-weight: 700;
+    padding: .95rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+  }
+  #contact-hero .ch-call {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 4px 4px 0 0 #1a1a1a;
+  }
+  #contact-hero .ch-call:hover { transform: translateY(-2px); box-shadow: 6px 6px 0 0 #1a1a1a; }
+  #contact-hero .ch-email {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,.5);
+  }
+  #contact-hero .ch-email:hover { background: rgba(255,255,255,.08); border-color: #fff; }
+  #contact-hero .ch-trust {
+    margin-top: 1.5rem;
+    color: #cfcfcf;
+    font-size: .9rem;
+  }
+  #contact-hero .ch-trust strong { color: var(--primary); }
 
-  .contact-info {
-    background: #fafafa;
-    padding: clamp(2.5rem, 6vw, 4rem) 1.25rem;
+  /* Two-column main */
+  #contact-main {
+    background: #f7f7f7;
+    padding: clamp(3rem, 7vw, 5.5rem) 1.25rem;
   }
-  .contact-info-grid {
-    max-width: 80rem; margin: 0 auto;
-    display: grid; gap: 1.25rem;
+  #contact-main .cm-grid {
+    max-width: 78rem;
+    margin: 0 auto;
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
   }
-  @media (min-width: 48rem) {
-    .contact-info-grid { grid-template-columns: repeat(3, 1fr); }
+  @media (min-width: 56rem) {
+    #contact-main .cm-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+      gap: 3rem;
+    }
   }
-  .ci-card {
-    background: #fff; border-radius: .5rem;
-    padding: 1.5rem; border-top: 4px solid var(--primary);
-    box-shadow: 0 8px 32px rgba(26,26,26,.06);
+
+  /* Info column */
+  .cm-info {
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: .5rem;
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    box-shadow: 0 12px 40px rgba(26,26,26,.18);
+    position: relative;
+    overflow: hidden;
   }
-  .ci-card h3 { margin: 0 0 .5rem; font-size: 1.1rem; color: #1a1a1a; }
-  .ci-card a { color: #1a1a1a; font-weight: 700; text-decoration: none; }
-  .ci-card a:hover { color: var(--primary); }
+  .cm-info::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--primary);
+  }
+  .cm-info .cm-topper {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .82rem;
+    margin: 0 0 .75rem;
+    display: block;
+  }
+  .cm-info h2 {
+    color: #fff;
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    font-weight: 900;
+  }
+  .cm-info p.cm-lead {
+    color: #d6d6d6;
+    line-height: 1.6;
+    margin: 0 0 2rem;
+    font-size: 1rem;
+  }
+  .cm-info .cm-list { list-style: none; padding: 0; margin: 0; }
+  .cm-info .cm-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid rgba(255,255,255,.10);
+  }
+  .cm-info .cm-list li:first-child { border-top: 0; padding-top: 0; }
+  .cm-info .cm-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 2.5rem;
+    background: var(--primary);
+    color: #000;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+  .cm-info .cm-meta {
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #9a9a9a;
+    margin: 0 0 .15rem;
+    display: block;
+    font-weight: 700;
+  }
+  .cm-info .cm-val {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    line-height: 1.35;
+    display: block;
+  }
+  .cm-info .cm-val:hover { color: var(--primary); }
+  .cm-info .cm-note {
+    color: #b9b9b9;
+    font-size: .85rem;
+    margin: .25rem 0 0;
+  }
+  .cm-info .cm-trust-row {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,.10);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    color: #d6d6d6;
+    font-size: .9rem;
+  }
+  .cm-info .cm-trust-row span { display: inline-flex; align-items: center; gap: .4rem; }
+  .cm-info .cm-trust-row strong { color: var(--primary); }
+
+  /* Form column */
+  .cm-form-wrap {
+    background: #fff;
+    border-radius: .5rem;
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    box-shadow: 0 12px 40px rgba(26,26,26,.10);
+    border-top: 4px solid var(--primary);
+  }
+  .cm-form-wrap .cm-form-topper {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .82rem;
+    margin: 0 0 .5rem;
+    display: block;
+  }
+  .cm-form-wrap h2 {
+    color: #1a1a1a;
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    line-height: 1.2;
+    margin: 0 0 .5rem;
+    font-weight: 900;
+  }
+  .cm-form-wrap .cm-form-sub {
+    color: #555;
+    margin: 0 0 1.75rem;
+    line-height: 1.55;
+    font-size: 1rem;
+  }
+
+  #cm-form { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 40rem) {
+    #cm-form { grid-template-columns: 1fr 1fr; }
+    #cm-form .full { grid-column: 1 / -1; }
+  }
+
+  #cm-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: .85rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    gap: .4rem;
+  }
+  #cm-form input,
+  #cm-form select,
+  #cm-form textarea {
+    font: inherit;
+    font-size: 1rem;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: #1a1a1a;
+    padding: .85rem 1rem;
+    border: 1.5px solid #d6d6d6;
+    border-radius: 4px;
+    background: #fff;
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  #cm-form textarea {
+    min-height: 9rem;
+    resize: vertical;
+    font-family: inherit;
+  }
+  #cm-form input:hover,
+  #cm-form select:hover,
+  #cm-form textarea:hover { border-color: #1a1a1a; }
+  #cm-form input:focus,
+  #cm-form select:focus,
+  #cm-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(78,239,26,.18);
+  }
+  #cm-form input::placeholder,
+  #cm-form textarea::placeholder { color: #9a9a9a; }
+
+  #cm-form button {
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    background: var(--primary);
+    color: #000;
+    padding: 1rem 1.75rem;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 0 #1a1a1a;
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    width: auto;
+    justify-self: start;
+  }
+  #cm-form button:hover { transform: translateY(-2px); box-shadow: 6px 6px 0 0 #1a1a1a; }
+  #cm-form button:disabled { opacity: .7; cursor: wait; }
+
+  .cm-form-meta {
+    margin: .9rem 0 0;
+    color: #555;
+    font-size: .9rem;
+  }
+  .cm-form-meta a { color: #1a1a1a; font-weight: 700; text-decoration: underline; }
+  .cm-form-meta a:hover { color: var(--primary); }
+
+  .cm-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+  .cm-success, .cm-error {
+    display: none;
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    margin: 0 0 1.25rem;
+    font-weight: 600;
+  }
+  .cm-success { background: #ecfdf3; color: #065f46; border: 1px solid #a7f3d0; }
+  .cm-success.show, .cm-error.show { display: block; }
+  .cm-error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
 </style>
 {% endblock %}
 
 {% block body %}
 
-<section class="contact-hero">
-  <span class="topper">Contact Abstract Construction LLC</span>
-  <h1>Get a free St. Louis construction quote</h1>
-  <p>Same-day response. Licensed &amp; insured general contractor serving the St. Louis metro and Metro East Illinois.</p>
-  <div class="ch-actions">
-    <a class="ch-call" href="tel:{{client.phoneForTel}}"><span class="phone-emoji">📞</span> Call {{client.phoneFormatted}}</a>
-    <a class="ch-email" href="mailto:{{client.email}}">✉ {{client.email}}</a>
+<section id="contact-hero">
+  <div class="ch-inner">
+    <span class="ch-topper">Contact Abstract Construction LLC</span>
+    <h1 class="ch-title">Let's build it <span class="accent">right.</span></h1>
+    <p class="ch-sub">
+      Tell us about your project and we'll respond the same business day with next steps. Free, no-obligation quotes for commercial, industrial, and residential work across St. Louis &amp; the Metro East.
+    </p>
+    <div class="ch-actions">
+      <a class="ch-call" href="tel:{{client.phoneForTel}}"><span class="phone-emoji">📞</span> Call {{client.phoneFormatted}}</a>
+      <a class="ch-email" href="mailto:{{client.email}}">✉ Email Us</a>
+    </div>
+    <p class="ch-trust"><strong>10+ years</strong> in St. Louis · <strong>5.0★</strong> on Google · Licensed &amp; insured</p>
   </div>
 </section>
 
-<section class="contact-info">
-  <div class="contact-info-grid">
-    <div class="ci-card">
-      <h3>Phone</h3>
-      <p><a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a></p>
-      <p style="margin:.25rem 0 0; color:#666; font-size:.9rem;">Mon–Fri 7am–5pm CT</p>
+<section id="contact-main">
+  <div class="cm-grid">
+
+    <!-- Left: contact info -->
+    <aside class="cm-info" aria-label="Ways to reach us">
+      <span class="cm-topper">Get in touch</span>
+      <h2>We're here to help.</h2>
+      <p class="cm-lead">
+        Pick the option that works best for you — we answer calls during business hours and reply to messages within one business day.
+      </p>
+
+      <ul class="cm-list">
+        <li>
+          <span class="cm-icon" aria-hidden="true">📞</span>
+          <div>
+            <span class="cm-meta">Call or text 24/7</span>
+            <a class="cm-val" href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a>
+            <p class="cm-note">Mon–Fri 7am–5pm CT · After hours: leave a message</p>
+          </div>
+        </li>
+        <li>
+          <span class="cm-icon" aria-hidden="true">✉</span>
+          <div>
+            <span class="cm-meta">Email us</span>
+            <a class="cm-val" href="mailto:{{client.email}}">{{client.email}}</a>
+            <p class="cm-note">Replies within 1 business day</p>
+          </div>
+        </li>
+        <li>
+          <span class="cm-icon" aria-hidden="true">📍</span>
+          <div>
+            <span class="cm-meta">Service area</span>
+            <span class="cm-val">St. Louis, MO &amp; Metro East IL</span>
+            <p class="cm-note"><a href="{{client.address.googleListingUrl}}" target="_blank" rel="noopener" style="color:#cfcfcf; text-decoration:underline;">View on Google Maps →</a></p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="cm-trust-row">
+        <span><strong>★★★★★</strong> 5.0 on Google</span>
+        <span><strong>Licensed</strong> &amp; insured</span>
+        <span><strong>Free</strong> estimates</span>
+      </div>
+    </aside>
+
+    <!-- Right: form -->
+    <div class="cm-form-wrap">
+      <span class="cm-form-topper">Request a free quote</span>
+      <h2>Tell us about your project</h2>
+      <p class="cm-form-sub">Takes about a minute. The more detail you share, the faster we can get back to you with an accurate plan.</p>
+
+      <div class="cm-success" id="cm-success" role="status" aria-live="polite">
+        Thanks! Your request has been sent. We'll be in touch within one business day. For immediate help, call <a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a>.
+      </div>
+      <div class="cm-error" id="cm-error" role="alert" aria-live="assertive">
+        Sorry, something went wrong. Please call us at {{client.phoneFormatted}} or email {{client.email}}.
+      </div>
+
+      <form id="cm-form"
+            action="https://formspree.io/f/xnnvkojb"
+            method="POST">
+        <input type="hidden" name="_subject" value="New lead from abstractconstructionllc.com (contact page)" />
+        <input type="hidden" name="page" value="{{ page.url }}" />
+        <label class="cm-hp" aria-hidden="true">
+          Leave this field empty: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+        </label>
+
+        <label>
+          Full name *
+          <input type="text" name="name" required autocomplete="name" placeholder="Jane Smith" />
+        </label>
+        <label>
+          Phone *
+          <input type="tel" name="phone" required autocomplete="tel" placeholder="(618) 555-0100" />
+        </label>
+        <label class="full">
+          Email
+          <input type="email" name="email" autocomplete="email" placeholder="you@email.com" />
+        </label>
+        <label class="full">
+          Project type *
+          <select name="project_type" required>
+            <option value="">Select one…</option>
+            <option>Commercial construction</option>
+            <option>Tenant / office renovation</option>
+            <option>Industrial design build</option>
+            <option>Drywall repair</option>
+            <option>Building maintenance</option>
+            <option>Mobile welding</option>
+            <option>Residential remodel</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="full">
+          Project details *
+          <textarea name="message" required placeholder="Tell us about scope, timeline, and address (city is fine)."></textarea>
+        </label>
+        <div class="full">
+          <button type="submit">Send my request</button>
+          <p class="cm-form-meta">Or call us directly: <a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a></p>
+        </div>
+      </form>
     </div>
-    <div class="ci-card">
-      <h3>Email</h3>
-      <p><a href="mailto:{{client.email}}">{{client.email}}</a></p>
-      <p style="margin:.25rem 0 0; color:#666; font-size:.9rem;">Replies within 1 business day</p>
-    </div>
-    <div class="ci-card">
-      <h3>Service area</h3>
-      <p>St. Louis, MO &amp; Metro East IL</p>
-      <p style="margin:.25rem 0 0; color:#666; font-size:.9rem;"><a href="{{client.address.googleListingUrl}}" target="_blank" rel="noopener">View on Google Maps →</a></p>
-    </div>
+
   </div>
 </section>
 
-{% include 'components/lead_form.html' %}
 {% include 'components/map.html' %}
+
+<script>
+(function(){
+  var form = document.getElementById('cm-form');
+  if (!form) return;
+  var success = document.getElementById('cm-success');
+  var errorBox = document.getElementById('cm-error');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    errorBox.classList.remove('show');
+    var btn = form.querySelector('button[type="submit"]');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(r){
+      if (r.ok) {
+        form.style.display = 'none';
+        success.classList.add('show');
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+        if (window.gtag) gtag('event', 'generate_lead', {form_name:'contact_page'});
+      } else {
+        return r.json().then(function(j){ throw new Error(j.error || 'Request failed'); });
+      }
+    }).catch(function(){
+      errorBox.classList.add('show');
+      btn.textContent = orig;
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
 
 {% endblock %}
