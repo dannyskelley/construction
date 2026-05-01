@@ -114,9 +114,34 @@ text-transform: uppercase;
     .cs-button-solid:hover .cs-icon {
         transform: translateX(0.25rem);
     }
-    
-                                    
+
+    .cs-button-outline {
+        text-align: center;
+        font-size: 1.3rem;
+        line-height: clamp(2.875rem, 8vw, 3.5rem);
+        text-decoration: none;
+        font-weight: 700;
+        min-width: 10.875rem;
+        color: #1a1a1a;
+        padding: 0 2rem;
+        box-sizing: border-box;
+        background-color: transparent;
+        border: 2px solid #1a1a1a;
+        box-shadow: 4px 4px 0px 0px #1a1a1a;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        transform: skew(-10deg);
+        transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
     }
+    .cs-button-outline:hover {
+        background-color: #1a1a1a;
+        color: #fff;
+        box-shadow: 4px 4px 0px 0px var(--primary);
+    }
+}
 
 
 /* Fonts and general styles */
@@ -1329,5 +1354,25 @@ text-transform: uppercase;
         #footer {
             background: #061623;
         }
+    }
+}
+
+/* Homepage services CTA row (primary + secondary buttons) */
+.cta-button-row {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+}
+.cta-button-row .cs-button-solid,
+.cta-button-row .cs-button-outline {
+    margin: 0;
+}
+@media only screen and (max-width: 47.9375rem) {
+    .cta-button-row {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
