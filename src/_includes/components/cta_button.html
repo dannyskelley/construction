@@ -1,1 +1,29 @@
+{% if showViewAllServices %}
+<div class="cta-button-row">
+    <a class="cs-button-solid" href="/contact">Get A Free Custom Quote</a>
+    <a class="cs-button-outline" href="/services/">View All Services</a>
+</div>
+
+<style>
+    .cta-button-row {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem 2rem;
+    }
+    .cta-button-row .cs-button-solid,
+    .cta-button-row .cs-button-outline {
+        margin: 0;
+    }
+    @media only screen and (max-width: 47.9375rem) {
+        .cta-button-row {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+</style>
+{% else %}
 <DIV style="margin: 0px 0px;"><a class="cs-button-solid" style="margin: auto;" href="/contact">Get A Free Custom Quote</a></DIV>
+{% endif %}
