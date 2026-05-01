@@ -1,0 +1,169 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+<style>
+  #cs-navigation { background: var(--headerScroll); }
+
+  .sl-hero {
+    background: #0a0a0a;
+    color: #fff;
+    padding: clamp(7rem, 14vw, 10rem) 1.25rem clamp(3rem, 6vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .sl-hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .sl-hero-bg img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .sl-hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.82) 100%);
+    z-index: 1;
+  }
+  .sl-hero-inner { position: relative; z-index: 2; max-width: 60rem; margin: 0 auto; }
+  .sl-hero .topper {
+    display: inline-block; color: var(--primary); font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em; font-size: .9rem; margin-bottom: .85rem;
+  }
+  .sl-hero h1 {
+    font-size: clamp(2rem, 5.5vw, 3.5rem); line-height: 1.1;
+    margin: 0 0 1rem; text-transform: uppercase;
+    color: #fff;
+  }
+  .sl-hero p { font-size: 1.15rem; max-width: 44rem; margin: 0 0 1.5rem; color: #e8e8e8; }
+  .sl-hero .cta-row { display: flex; flex-wrap: wrap; gap: .85rem; }
+  .sl-hero .cta-primary {
+    background: var(--primary); color: #000; font-weight: 800;
+    padding: .95rem 1.5rem; border-radius: 4px; text-decoration: none;
+    text-transform: uppercase; letter-spacing: .03em; display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .sl-hero .cta-secondary {
+    background: transparent; color: #fff; font-weight: 700;
+    padding: .95rem 1.5rem; border-radius: 4px; text-decoration: none;
+    border: 1px solid rgba(255,255,255,.4); display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .sl-hero .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(78,239,26,.4); }
+  .sl-hero .cta-secondary:hover { border-color: var(--primary); }
+
+  .sl-section { padding: clamp(3rem, 6vw, 5rem) 1.25rem; }
+  .sl-section-inner { max-width: 70rem; margin: 0 auto; }
+  .sl-section h2 { font-size: clamp(1.6rem, 3.6vw, 2.4rem); line-height: 1.2; margin: 0 0 1.25rem; color: #1a1a1a; }
+  .sl-section h3 { font-size: 1.25rem; margin: 1.5rem 0 .5rem; color: #1a1a1a; }
+  .sl-section p, .sl-section li { font-size: 1.05rem; line-height: 1.65; color: #333; }
+  .sl-section ul { padding-left: 1.25rem; }
+  .sl-section ul li { margin-bottom: .5rem; }
+  .sl-grey { background: #fafafa; }
+
+  .sl-process {
+    display: grid; gap: 1rem;
+    grid-template-columns: 1fr;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 48rem) { .sl-process { grid-template-columns: repeat(4, 1fr); } }
+  .sl-process .step {
+    background: #fff; border-radius: .5rem; padding: 1.5rem;
+    border-top: 4px solid var(--primary);
+    box-shadow: 0 8px 32px rgba(26,26,26,.06);
+  }
+  .sl-process .step strong {
+    display: inline-block; color: var(--primary); font-size: .85rem; letter-spacing: .08em;
+    text-transform: uppercase; margin-bottom: .5rem;
+  }
+  .sl-process .step h4 { margin: 0 0 .5rem; font-size: 1.1rem; }
+  .sl-process .step p { margin: 0; color: #555; font-size: .95rem; }
+
+  .sl-gallery {
+    display: grid; gap: .75rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 48rem) { .sl-gallery { grid-template-columns: repeat(3, 1fr); } }
+  .sl-gallery img {
+    width: 100%; height: 220px; object-fit: cover;
+    border-radius: .35rem; display: block;
+  }
+
+  .sl-faq { max-width: 50rem; margin: 1.5rem 0 0; }
+  .sl-faq details { border-bottom: 1px solid #e0e0e0; padding: 1rem 0; }
+  .sl-faq summary {
+    font-weight: 700; font-size: 1.1rem; cursor: pointer;
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+    color: #1a1a1a;
+  }
+  .sl-faq summary::after { content: '+'; font-size: 1.5rem; line-height: 1; color: var(--primary); }
+  .sl-faq details[open] summary::after { content: '−'; }
+  .sl-faq p { margin: .75rem 0 0; color: #444; }
+
+  .sl-related {
+    background: #1a1a1a; color: #fff; padding: clamp(2.5rem, 5vw, 3.5rem) 1.25rem;
+  }
+  .sl-related-inner { max-width: 70rem; margin: 0 auto; }
+  .sl-related h2 { color: #fff; font-size: 1.6rem; margin: 0 0 1.25rem; }
+  .sl-related-grid {
+    display: grid; gap: .75rem; grid-template-columns: 1fr;
+  }
+  @media (min-width: 40rem) { .sl-related-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 64rem) { .sl-related-grid { grid-template-columns: repeat(4, 1fr); } }
+  .sl-related a {
+    background: rgba(255,255,255,.06); color: #fff; text-decoration: none;
+    padding: 1rem 1.25rem; border-radius: 6px; font-weight: 600;
+    border-left: 3px solid var(--primary);
+    transition: background-color .2s, transform .2s;
+  }
+  .sl-related a:hover { background: rgba(255,255,255,.12); transform: translateX(4px); }
+
+  .sl-areas { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .sl-areas span {
+    background: #f0f0f0; padding: .35rem .75rem; border-radius: 999px;
+    font-size: .85rem; color: #333;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<section class="sl-hero">
+  <div class="sl-hero-bg" aria-hidden="true">
+    <img src="{{ heroImage or '/assets/images/bg1.jpg' }}" alt="" loading="eager" decoding="async">
+  </div>
+  <div class="sl-hero-inner">
+    <span class="topper">St. Louis, MO &amp; Metro East</span>
+    <h1>{{ heroH1 }}</h1>
+    <p>{{ heroIntro }}</p>
+    <div class="cta-row">
+      <a class="cta-primary" href="#lead-form">Get a Free Quote</a>
+      <a class="cta-secondary" href="tel:{{client.phoneForTel}}"><span class="phone-emoji">📞</span> {{client.phoneFormatted}}</a>
+    </div>
+  </div>
+</section>
+
+{% include 'components/trust_strip.html' %}
+
+{{ content | safe }}
+
+<section class="sl-related">
+  <div class="sl-related-inner">
+    <h2>Related St. Louis services</h2>
+    <div class="sl-related-grid">
+      {% set landingPages = [
+        { url: '/commercial-construction-st-louis/', title: 'Commercial Construction in St. Louis' },
+        { url: '/general-contractor-st-louis/', title: 'General Contractor in St. Louis' },
+        { url: '/drywall-repair-st-louis/', title: 'Drywall Repair in St. Louis' },
+        { url: '/tenant-improvements-st-louis/', title: 'Tenant Improvements in St. Louis' },
+        { url: '/industrial-design-build-st-louis/', title: 'Industrial Design Build in St. Louis' }
+      ] %}
+      {% for p in landingPages %}
+        {% if p.url != page.url %}
+        <a href="{{ p.url }}">{{ p.title }} →</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include 'components/lead_form.html' %}
+
+{% endblock %}

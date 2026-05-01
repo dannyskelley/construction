@@ -102,6 +102,36 @@
   .cs-button-solid:hover .cs-icon {
     transform: translateX(0.25rem);
   }
+  .cs-button-outline {
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: clamp(2.875rem, 8vw, 3.5rem);
+    text-decoration: none;
+    font-weight: 700;
+    min-width: 10.875rem;
+    color: #1a1a1a;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid #1a1a1a;
+    box-shadow: 4px 4px 0px 0px #1a1a1a;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    transform: skew(-10deg);
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+  }
+  .cs-button-outline:hover {
+    background-color: #1a1a1a;
+    color: #fff;
+    box-shadow: 4px 4px 0px 0px var(--primary);
+  }
+}
+.phone-emoji {
+  display: inline-block;
+  filter: brightness(0) invert(1);
 }
 /* Fonts and general styles */
 @media only screen and (min-width: 0em) {

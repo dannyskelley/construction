@@ -1,0 +1,215 @@
+<!-- ============================================ -->
+<!--           Inline Lead Form (Formspree)       -->
+<!-- ============================================ -->
+<style>
+  #lead-form {
+    background: #fafafa;
+    padding: clamp(2.5rem, 6vw, 4rem) 1rem;
+    position: relative;
+    z-index: 5;
+    scroll-margin-top: 100px;
+  }
+  #lead-form .lead-form-inner {
+    max-width: 56rem;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: .5rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    box-shadow: 0 12px 60px rgba(26, 26, 26, 0.10);
+    border-top: 4px solid var(--primary);
+  }
+  #lead-form .lead-topper {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: .5rem;
+  }
+  #lead-form h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    line-height: 1.2;
+    margin: 0 0 .5rem;
+    color: #1a1a1a;
+  }
+  #lead-form p.lead-sub {
+    margin: 0 0 1.75rem;
+    color: #555;
+    font-size: 1rem;
+    max-width: 38rem;
+  }
+  #lead-form .lead-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .9rem;
+  }
+  @media (min-width: 40rem) {
+    #lead-form .lead-grid { grid-template-columns: 1fr 1fr; }
+    #lead-form .full { grid-column: 1 / -1; }
+  }
+  #lead-form label {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  #lead-form input, #lead-form select, #lead-form textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .85rem 1rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    background: #fff;
+    color: #1a1a1a;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  #lead-form input:focus, #lead-form select:focus, #lead-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(78, 239, 26, 0.18);
+  }
+  #lead-form textarea { min-height: 7rem; resize: vertical; }
+  #lead-form .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+  #lead-form button[type="submit"] {
+    background: var(--primary);
+    color: #000;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform .15s, box-shadow .2s;
+    width: 100%;
+  }
+  #lead-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(78, 239, 26, 0.35);
+  }
+  #lead-form .form-meta {
+    margin-top: .85rem;
+    font-size: .85rem;
+    color: #666;
+    text-align: center;
+  }
+  #lead-form .form-meta a { color: #1a1a1a; font-weight: 700; text-decoration: none; }
+  #lead-form .form-success {
+    background: #ecfdf3;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+    padding: 1.25rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    display: none;
+  }
+  #lead-form .form-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    display: none;
+  }
+</style>
+
+<section id="lead-form" aria-labelledby="lead-form-title">
+  <div class="lead-form-inner">
+    <span class="lead-topper">Get a Free Quote</span>
+    <h2 id="lead-form-title">{% if leadFormHeading %}{{ leadFormHeading }}{% else %}Tell us about your project{% endif %}</h2>
+    <p class="lead-sub">{% if leadFormSub %}{{ leadFormSub }}{% else %}Same-day response. No obligation. Serving St. Louis, MO and the Metro East.{% endif %}</p>
+
+    <div class="form-success" id="lf-success" role="status" aria-live="polite">
+      Thanks! Your request has been sent. We'll be in touch within one business day. For immediate help, call <a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a>.
+    </div>
+
+    <form id="lf-form" class="lead-grid"
+          action="https://formspree.io/f/xnnvkojb"
+          method="POST">
+      <input type="hidden" name="_subject" value="New lead from abstractconstructionllc.com" />
+      <input type="hidden" name="page" value="{{ page.url }}" />
+      <label class="hp" aria-hidden="true">
+        Leave this field empty: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+      </label>
+
+      <label>
+        Full name *
+        <input type="text" name="name" required autocomplete="name" placeholder="Jane Smith" />
+      </label>
+      <label>
+        Phone *
+        <input type="tel" name="phone" required autocomplete="tel" placeholder="(618) 555-0100" />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" autocomplete="email" placeholder="you@email.com" />
+      </label>
+      <label>
+        Project type *
+        <select name="project_type" required>
+          <option value="">Select one…</option>
+          <option>Commercial construction</option>
+          <option>Tenant / office renovation</option>
+          <option>Industrial design build</option>
+          <option>Drywall repair</option>
+          <option>Building maintenance</option>
+          <option>Mobile welding</option>
+          <option>Residential remodel</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label class="full">
+        Project details *
+        <textarea name="message" required placeholder="Tell us about scope, timeline, and address (city is fine)."></textarea>
+      </label>
+      <div class="full">
+        <button type="submit">Request my free quote</button>
+        <p class="form-meta">Or call us directly: <a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a></p>
+      </div>
+      <div class="form-error full" id="lf-error">Sorry, something went wrong. Please call us at {{client.phoneFormatted}} or email {{client.email}}.</div>
+    </form>
+  </div>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('lf-form');
+  if (!form) return;
+  var success = document.getElementById('lf-success');
+  var errorBox = document.getElementById('lf-error');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    errorBox.style.display = 'none';
+    var btn = form.querySelector('button[type="submit"]');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(r){
+      if (r.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+        if (window.gtag) gtag('event', 'generate_lead', {form_name:'lead_form'});
+      } else {
+        return r.json().then(function(j){ throw new Error(j.error || 'Request failed'); });
+      }
+    }).catch(function(){
+      errorBox.style.display = 'block';
+      btn.textContent = orig;
+      btn.disabled = false;
+    });
+  });
+})();
+</script>

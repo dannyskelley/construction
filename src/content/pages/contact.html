@@ -1,287 +1,107 @@
 ---
-title: ' Abstract Construction LLC | St. Louis Commercial, Industrial, & Residential Construction Experts'
-description: 'Get in touch with Abstract Construction LLC, the trusted name in St. Louis Commercial, Industrial, & Residential Construction. Call or text us 24/7 at (618) 771-0767 or email for a consultation today!'
+title: 'Contact Us: St. Louis Commercial Construction Quotes | Abstract Construction LLC'
+description: 'Talk to a St. Louis general contractor today. Call (618) 771-0767, email zach@abstractconstruction.net, or send our 1-minute quote request form. Free, no-obligation estimates for commercial, industrial, and residential projects.'
+keywords: 'contact st louis general contractor, abstract construction llc contact, free quote st louis construction'
 permalink: 'contact/'
+preloadImg: '/assets/images/contactform.jpg'
+ogImage: '/assets/images/og-default.jpg'
 eleventyNavigation:
     key: Contact Us
     order: 900
-
 ---
-
 
 {% extends "layouts/base.html" %}
 
 {% block head %}
+<style>
+  #cs-navigation { background: var(--headerScroll); }
+  .contact-hero {
+    background: #1a1a1a;
+    color: #fff;
+    padding: clamp(7rem, 14vw, 10rem) 1.25rem clamp(3rem, 6vw, 4rem);
+    text-align: center;
+  }
+  .contact-hero .topper {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .85rem;
+    display: inline-block;
+    margin-bottom: .75rem;
+  }
+  .contact-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+  }
+  .contact-hero p { max-width: 42rem; margin: 0 auto 1.5rem; color: #ddd; font-size: 1.05rem; }
+  .contact-hero .ch-actions { display: inline-flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+  .contact-hero a {
+    display: inline-flex; align-items: center; gap: .5rem;
+    text-decoration: none; font-weight: 700; padding: .9rem 1.25rem;
+    border-radius: 4px; font-size: 1rem;
+  }
+  .contact-hero .ch-call { background: var(--primary); color: #000; }
+  .contact-hero .ch-email { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
+  .contact-hero .ch-call:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(78,239,26,.35); }
 
+  .contact-info {
+    background: #fafafa;
+    padding: clamp(2.5rem, 6vw, 4rem) 1.25rem;
+  }
+  .contact-info-grid {
+    max-width: 80rem; margin: 0 auto;
+    display: grid; gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 48rem) {
+    .contact-info-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .ci-card {
+    background: #fff; border-radius: .5rem;
+    padding: 1.5rem; border-top: 4px solid var(--primary);
+    box-shadow: 0 8px 32px rgba(26,26,26,.06);
+  }
+  .ci-card h3 { margin: 0 0 .5rem; font-size: 1.1rem; color: #1a1a1a; }
+  .ci-card a { color: #1a1a1a; font-weight: 700; text-decoration: none; }
+  .ci-card a:hover { color: var(--primary); }
+</style>
 {% endblock %}
 
 {% block body %}
 
-<!-- ============================================ -->
-<!--                Contact Form                  -->
-<!-- ============================================ -->
-
-
-<style>
-  /*-- -------------------------- -->
-<---          Contact           -->
-<--- -------------------------- -*/
-
-#cs-navigation {
-
-background: var(--headerScroll);
-}
-
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
-    #cs-contact-490 {
-      padding: clamp(9.25rem, 15vw, 2.75rem) 2rem;
-      padding-bottom: 50px;
-    }
-
-    #cs-contact-490 .cs-container {
-      width: 100%;
-      /* changes to 1280px at desktop */
-      max-width: 34.375rem;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 3rem;
-    }
-
-    #cs-contact-490 .cs-content {
-      max-width: 32.625rem;
-      text-align: left;
-    }
-
-    #cs-contact-490 .cs-text {
-      /* 16px - 48px */
-      margin: 0 0 clamp(1rem, 4.4vw, 3rem) 0;
-    }
-
-    #cs-contact-490 .cs-header {
-      /* 13px - 16px */
-      font-size: clamp(0.8125rem, 1.5vw, 1rem);
-      line-height: 1.2em;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin: 0 0 1rem 0;
-      color: #b4b2c7;
-      display: block;
-    }
-
-    #cs-contact-490 .cs-link {
-      /* 16px - 20px */
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      text-decoration: none;
-      line-height: 1.5em;
-      font-weight: 700;
-      /* 16px - 32px */
-      margin: 0 0 clamp(1rem, 2.5vw, 2rem);
-      color: var(--headerColor);
-      display: block;
-    }
-
-    #cs-contact-490 .cs-link:hover {
-      text-decoration: underline;
-    }
-
-    #cs-contact-490 .cs-link:last-of-type {
-      margin-bottom: 0;
-    }
-
-    #cs-contact-490 .cs-social {
-      /* 32px - 80px */
-      margin-top: clamp(2rem, 6vw, 5rem);
-      display: inline-flex;
-      justify-content: flex-start;
-      gap: 0.75em;
-    }
-
-    #cs-contact-490 .cs-social-link {
-      /* 32px - 52px */
-      width: 80px;
-      height: 80px;
-      background-color: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      transition: transform 0.3s, background-color 0.3s;
-    }
-
-    #cs-contact-490 .cs-social-link:hover {
-      background-color: #666;
-      transform: translateY(-0.1875rem);
-    }
-
-    #cs-contact-490 .cs-social-img {
-      /* 14px - 24px */
-      height: clamp(0.875rem, 2vw, 1.5rem);
-      width: auto;
-      display: block;
-    }
-
-    #cs-contact-490 #cs-form-490 {
-      width: 100%;
-      max-width: 40.625rem;
-      /* 32px - 40px */
-      margin-bottom: clamp(2rem, 5.3vw, 2.5rem);
-      /* 20px - 40px */
-      padding: clamp(1.25rem, 4.5vw, 2.5rem);
-      /* prevents padding from affecting width and height */
-      box-sizing: border-box;
-
-    }
-
-    #cs-contact-490 .cs-label {
-      /* 14px - 16px */
-      font-size: clamp(1.25rem, 1.3vw, 1.2rem);
-      line-height: 1.5em;
-      font-weight: 700;
-      /* 16px - 20px */
-      margin-bottom: clamp(1rem, 1em, 1.25rem);
-      color: var(--headerColor);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
-    #cs-contact-490 .cs-label-message {
-      /* 32px - 40px */
-      margin-bottom: clamp(2rem, 4.5vw, 2.5rem);
-    }
-
-    #cs-contact-490 .cs-input,
-    #cs-contact-490 textarea {
-      font-size: 1rem;
-      width: 100%;
-      height: 4rem;
-      margin-top: 0.25rem;
-      padding-left: 1.25rem;
-      /* set transparent border so on hover border doesn't make it glitch */
-      border: 1px solid transparent;
-      border: 1px solid #b4b2c7;
-      border-radius: 5px;
-      /* prevents border & padding from affecting height */
-      box-sizing: border-box;
-      transition: border 0.3s;
-    }
-
-    #cs-contact-490 .cs-input:hover,
-    #cs-contact-490 textarea:hover {
-      border: 1px solid var(--primary);
-    }
-
-    #cs-contact-490 .cs-input::placeholder,
-    #cs-contact-490 textarea::placeholder {
-      color: #7d799c;
-    }
-
-    #cs-contact-490 textarea {
-      font-family: inherit;
-      margin: 0;
-      padding-top: 1.25rem;
-      min-height: 7.5rem;
-    }
-
-  }
-
-  @media only screen and (min-width: 920px) {
-
-    #cs-contact-490 {
-      padding: clamp(12.25rem, 15vw, 2.75rem) 2rem;
-    }
-  }
-
-  /* Tablet - 700px */
-  @media only screen and (min-width: 43.75rem) {
-    #cs-contact-490 .cs-container {
-
-      
-      max-width: 80rem;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    #cs-contact-490 .cs-content {
-      width: 40%;
-      /* pushes it to the right */
-
-      flex: none;
-    }
-
-    #cs-contact-490 #cs-form-490 {
-      margin: 0;
-    }
-  }
-</style>
-<section id="cs-contact-490">
-  <div class="cs-container">
-    <!-- Contact Info -->
-    <div class="cs-content">
-      <h2 class="cs-topper">Get in touch</h2>
-      <h2 class="cs-title">Contact us today to start your project</h2>
-      <span class="cs-text" style="margin-top: 50px;">
-        Partner with St. Louis experts in commercial, industrial, & residential construction. Get in touch today for a consultation.
-      </span>
-      <!--<p class="cs-text">
-                Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Eu volutpat odio facilisis mauris sit amet massa. Sit amet est placerat in egestas
-            </p>-->
-
-      <!--Address
-            <span class="cs-header">Address</span>
-            <a href="" class="cs-link">
-                PO Box 15252 Mill Creek, <br>Washington, USA 98082
-            </a>-->
-      <!--Email-->
-      <span class="cs-title" style="margin-top: 50px; display: block;">Email Us</span>
-      <a href="mailtp:erin@tenaciousgutters.com" class="cs-link">zach@abstractconstruction.net</a>
-      <!--Phone-
-      <span class="cs-title" style="display: block; margin:50px 0px 10px;">Call or Text 24/7</span>
-      <a href="tel:{{client.phoneForTel}}" class="cs-title">{{client.phoneFormatted}}</a>->
-
-      <!--Social Buttons-->
-      <div class="cs-social" style="margin: 80px 0px 30px; display: block;">
-      
-      </div>
-    </div>
-    <!-- Form -->
-    <form netlify  netlify-honeypot="bot-field"
-    data-netlify="true" id="cs-form-490" name="Contact Form" method="post">
-    <p class="hidden">
-      <label>
-        Don’t fill this out if you’re human: <input name="bot-field" />
-      </label>
-    </p>
-      <label class="cs-label" style="margin-bottom: 60px;">
-        Name
-        <input class="cs-input" required type="text" id="name-490" name="name" placeholder="">
-      </label>
-      <label class="cs-label" style="margin-bottom: 60px;">
-        Email
-        <input class="cs-input" required type="text" id="email-490" name="email" placeholder="">
-      </label>
-      <label class="cs-label" style="margin-bottom: 60px;">
-        Phone
-        <input class="cs-input" required type="text" id="phone-490" name="phone" placeholder="">
-      </label>
-      <label class="cs-label -label-message" style="margin-bottom: 60px;">
-        Project Details
-        <textarea class="cs-input" required name="Message" id="message-490" placeholder=""></textarea>
-      </label>
-      <button class="cs-button-solid" type="submit">Send Message</button>
-    </form>
+<section class="contact-hero">
+  <span class="topper">Contact Abstract Construction LLC</span>
+  <h1>Get a free St. Louis construction quote</h1>
+  <p>Same-day response. Licensed &amp; insured general contractor serving the St. Louis metro and Metro East Illinois.</p>
+  <div class="ch-actions">
+    <a class="ch-call" href="tel:{{client.phoneForTel}}"><span class="phone-emoji">📞</span> Call {{client.phoneFormatted}}</a>
+    <a class="ch-email" href="mailto:{{client.email}}">✉ {{client.email}}</a>
   </div>
 </section>
 
+<section class="contact-info">
+  <div class="contact-info-grid">
+    <div class="ci-card">
+      <h3>Phone</h3>
+      <p><a href="tel:{{client.phoneForTel}}">{{client.phoneFormatted}}</a></p>
+      <p style="margin:.25rem 0 0; color:#666; font-size:.9rem;">Mon–Fri 7am–5pm CT</p>
+    </div>
+    <div class="ci-card">
+      <h3>Email</h3>
+      <p><a href="mailto:{{client.email}}">{{client.email}}</a></p>
+      <p style="margin:.25rem 0 0; color:#666; font-size:.9rem;">Replies within 1 business day</p>
+    </div>
+    <div class="ci-card">
+      <h3>Service area</h3>
+      <p>St. Louis, MO &amp; Metro East IL</p>
+      <p style="margin:.25rem 0 0; color:#666; font-size:.9rem;"><a href="{{client.address.googleListingUrl}}" target="_blank" rel="noopener">View on Google Maps →</a></p>
+    </div>
+  </div>
+</section>
 
-
+{% include 'components/lead_form.html' %}
+{% include 'components/map.html' %}
 
 {% endblock %}

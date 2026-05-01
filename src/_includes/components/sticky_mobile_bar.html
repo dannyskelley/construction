@@ -1,0 +1,60 @@
+<!-- ============================================ -->
+<!--           Sticky Mobile Action Bar           -->
+<!-- ============================================ -->
+<style>
+  .sticky-mobile-bar {
+    display: none;
+  }
+  @media only screen and (max-width: 63.9375rem) {
+    .sticky-mobile-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9998;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.18);
+      font-family: "Poppins", Arial, sans-serif;
+    }
+    .sticky-mobile-bar a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .9rem .5rem;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      color: #fff;
+      transition: opacity .2s;
+    }
+    .sticky-mobile-bar a:active { opacity: .85; }
+    .sticky-mobile-bar .sb-call {
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .sticky-mobile-bar .sb-quote {
+      background: var(--primary);
+      color: #000;
+    }
+    .sticky-mobile-bar svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+    }
+    body { padding-bottom: 60px; }
+  }
+</style>
+<div class="sticky-mobile-bar" role="complementary" aria-label="Quick contact">
+  <a class="sb-call" href="tel:{{client.phoneForTel}}" aria-label="Call {{client.name}}">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24c1.16.39 2.4.6 3.66.6a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.27.21 2.5.6 3.66a1 1 0 01-.25 1.05l-2.23 2.08z"/></svg>
+    Call Now
+  </a>
+  <a class="sb-quote" href="#lead-form" aria-label="Get a free quote">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5h18v3H3V5zm0 5h18v3H3v-3zm0 5h12v3H3v-3z"/></svg>
+    Free Quote
+  </a>
+</div>

@@ -11,11 +11,12 @@
     overflow: hidden;
     position: relative;
     z-index: 1;
-    min-height: 110vh;
+    min-height: 96vh;
   }
 
   .hero-topper {
     max-width: 250px;
+    font-size: 0.75rem;
   }
 
   #hero-2041 .cs-container {
@@ -47,17 +48,51 @@
 
   #hero-2041 .cs-text {
     max-width: 35.25rem;
-    margin-bottom: 2rem;
-    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.15rem;
     color: var(--bodyTextColorWhite);
   }
 
-  /* CTA Button */
-  #hero-2041 .cs-button-solid {
+  /* Call link */
+  #hero-2041 .hero-call-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: .5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: .6rem 1rem;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 4px;
+    transition: background-color .2s, border-color .2s;
+    margin-top: .5rem;
+    align-self: center;
   }
+  #hero-2041 .hero-call-link:hover {
+    background-color: rgba(255,255,255,.08);
+    border-color: var(--primary);
+  }
+  #hero-2041 .hero-call-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* Inline trust signals */
+  #hero-2041 .hero-trust {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    font-family: "Poppins", Arial, sans-serif;
+    color: #f0f0f0;
+    font-size: .9rem;
+  }
+  #hero-2041 .hero-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+  }
+  #hero-2041 .hero-trust .stars { color: #ffc419; letter-spacing: 2px; }
+  #hero-2041 .hero-trust strong { color: var(--primary); font-weight: 800; }
 
   /* Award image */
   #hero-2041 .hero-award {
@@ -66,7 +101,6 @@
     justify-content: center;
     width: 100%;
   }
-
   #hero-2041 .hero-award img {
     max-width: 220px;
     width: 100%;
@@ -86,12 +120,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      0deg,
-      #000 15%,
-      rgba(0, 0, 0, 0) 58.94%,
-      rgba(0, 0, 0, 0.05) 96.68%
-    );
+    background: linear-gradient(0deg, #000 15%, rgba(0,0,0,0) 58.94%, rgba(0,0,0,0.05) 96.68%);
     opacity: 0.98;
     z-index: 1;
     pointer-events: none;
@@ -101,48 +130,16 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.55;
   }
 }
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-  .hero-topper {
-    max-width: 100%;
-  }
-
-  #hero-2041 .cs-content {
-    align-items: center;
-    text-align: center;
-    margin: auto;
-  }
-
-  #hero-2041 .hero-award img {
-    max-width: 260px;
-  }
-}
-
-/* Large Desktop - Parallax */
-@media only screen and (min-width: 100rem) {
-  #hero-2041 {
-    min-height: 100vh;
-  }
-
-  #hero-2041 .cs-background {
-    background: url("/assets/images/bg1.jpg");
-    background-size: cover;
-    background-position: left;
-    background-attachment: fixed;
-    opacity: 0.6;
-  }
-
-  #hero-2041 .cs-background img {
-    display: none;
-  }
-
-  #hero-2041 .cs-background::before {
-    opacity: 0.28;
-  }
+  .hero-topper { max-width: 100%; font-size: clamp(0.75rem, 1.35vw, 1.05rem); white-space: nowrap; }
+  #hero-2041 .cs-content { align-items: center; text-align: center; margin: auto; }
+  #hero-2041 .hero-trust { justify-content: center; }
+  #hero-2041 .hero-award img { max-width: 260px; }
 }
 </style>
 
@@ -150,44 +147,50 @@
   <div class="cs-container">
     <div class="cs-content">
       <span class="cs-topper hero-topper" style="color:#4EEF1A; margin-bottom:20px;">
-        St. Louis, MO & Surrounding Area
+        St. Louis, MO and Metro East, Licensed General Contractor
       </span>
 
       <h1 class="cs-title">
-        Commercial Construction + Home
-        <span style="color:#4EEF1A">&</span>
+        Commercial Construction <span style="color:#4EEF1A">+</span> Home
+        <span style="color:#4EEF1A">&amp;</span>
         Business Remodeling
       </h1>
 
       <p class="cs-text">
-        Your project deserves more than a standard contractor. It deserves vision,
-        expertise, and craftsmanship that outshines the rest. While others stick
-        to templates, we create custom, high-end solutions that set new standards
-        in construction and design.
+        Trusted St. Louis general contractor delivering tenant improvements, design-build, drywall, and full commercial remodels. On time, on budget, and built right the first time.
       </p>
 
-      <a href="/contact" class="cs-button-solid" aria-label="contact us">
-        Contact us today
-        <svg class="cs-icon" width="30" height="24" viewBox="0 0 30 24" fill="none">
-          <path d="M14.83 11.29L10.59 7.05C10.2 6.66 9.56 6.66 9.17 7.05
-                   8.78 7.44 8.78 8.07 9.17 8.46L12.71 12
-                   9.17 15.54C8.78 15.93 8.78 16.56 9.17 16.95
-                   9.56 17.34 10.2 17.34 10.59 16.95L14.83 12.71
-                   C15.22 12.32 15.22 11.68 14.83 11.29Z" fill="white"/>
-        </svg>
+      <a href="/contact" class="cs-button-solid" aria-label="Get a free quote">Get a Free Quote</a>
+
+      <a class="hero-call-link" href="tel:{{client.phoneForTel}}" aria-label="Call {{client.phoneFormatted}}">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24c1.16.39 2.4.6 3.66.6a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.27.21 2.5.6 3.66a1 1 0 01-.25 1.05l-2.23 2.08z"/></svg>
+        Call {{client.phoneFormatted}}
       </a>
 
-      <!-- Award Image -->
+      <div class="hero-trust" aria-label="Trust indicators">
+        <span><strong>10+ yrs</strong> in St. Louis</span>
+        <span><span class="stars">★★★★★</span> 5.0 on Google</span>
+        <span>Licensed &amp; Insured</span>
+      </div>
+
       <div class="hero-award">
-        <img src="/assets/images/award.png" alt="Award Badge">
+        <picture>
+          <source srcset="/assets/images/award.webp" type="image/webp">
+          <img src="/assets/images/award.png" alt="Award badge" width="220" height="376" loading="lazy" decoding="async">
+        </picture>
       </div>
     </div>
   </div>
 
-  <!-- Background Image -->
+  <!-- LCP background image: eager, high priority, no CSS double-download -->
   <picture class="cs-background">
-    <source media="(max-width: 600px)" srcset="/assets/images/bg1.jpg">
-    <source media="(min-width: 601px)" srcset="/assets/images/bg1.jpg">
-    <img src="/assets/images/bg1.jpg" alt="" loading="lazy" decoding="async">
+    <img src="/assets/images/bg1.jpg"
+         alt=""
+         fetchpriority="high"
+         loading="eager"
+         decoding="async"
+         width="1920"
+         height="1080">
   </picture>
 </section>
+

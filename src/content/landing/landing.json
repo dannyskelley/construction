@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/service-landing.html",
+  "tags": ["landing"],
+  "eleventyComputed": {
+    "permalink": "{{ page.fileSlug }}/"
+  }
+}

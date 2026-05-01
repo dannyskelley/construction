@@ -3,14 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0S83SPVQK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-K0S83SPVQK');
 </script>
 
@@ -19,22 +18,52 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ description }}">
-        <meta name="keywords" content="">
+        {% if keywords %}<meta name="keywords" content="{{ keywords }}">{% endif %}
+        <meta name="author" content="{{ client.name }}">
+        <meta name="robots" content="{% if noindex %}noindex, nofollow{% else %}index, follow, max-image-preview:large{% endif %}">
+        <meta name="theme-color" content="#000000">
+        <meta name="geo.region" content="US-MO">
+        <meta name="geo.placename" content="St. Louis">
+        <meta name="geo.position" content="{{ client.address.latitude }};{{ client.address.longitude }}">
+        <meta name="ICBM" content="{{ client.address.latitude }}, {{ client.address.longitude }}">
         <link rel="canonical" href="{{ client.domain }}{{ page.url }}">
 
-        <!--Social Media Display-->
+        <!-- Title -->
+        {% if page.url == '/' %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>{{ title }} | {{ client.name }}</title>
+        {% endif %}
+
+        <!--Social Media Display - Open Graph-->
         <meta property="og:title" content="{{ title }}" />
         <meta property="og:description" content="{{ description }}" />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}" />
         <meta property="og:url" content="{{ client.domain }}{{ page.url }}" />
-        <meta property="og:image" content="/assets/images/logo-small.png" />
-        <meta property="og:image:secure_url" content="/assets/images/logo-small.png" />
+        <meta property="og:site_name" content="{{ client.name }}" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="{{ client.domain }}{% if ogImage %}{{ ogImage }}{% else %}/assets/images/og-default.jpg{% endif %}" />
+        <meta property="og:image:secure_url" content="{{ client.domain }}{% if ogImage %}{{ ogImage }}{% else %}/assets/images/og-default.jpg{% endif %}" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="{{ title }}" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ title }}">
+        <meta name="twitter:description" content="{{ description }}">
+        <meta name="twitter:image" content="{{ client.domain }}{% if ogImage %}{{ ogImage }}{% else %}/assets/images/og-default.jpg{% endif %}">
 
         <!--Favicons-->
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons//apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons//favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons//favicon-16x16.png">
-        <link rel="manifest" href="/assets/favicons//site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/assets/favicons/site.webmanifest">
+
+        <!-- Preconnects -->
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+        <link rel="preconnect" href="https://csimg.nyc3.cdn.digitaloceanspaces.com" crossorigin>
+        <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
         <!-- Preloads -->
         <link rel="preload" as="image" href="/assets/svgs/logo-white.svg">
@@ -42,43 +71,123 @@
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
 
         <!-- Preload an image - tag not rendered if preloadImg is blank to stop console errors -->
-        {% if preloadImg != '' %}
-            <link rel="preload" as="image" href="{{ preloadImg }}" />
+        {% if preloadImg %}
+            <link rel="preload" as="image" href="{{ preloadImg }}" fetchpriority="high" />
         {% endif %}
 
-        <!-- Sitewide Stylesheets and Scripts -->
+        <!-- Sitewide Stylesheets -->
         <link rel="stylesheet" href="/assets/css/root.css">
 
-        <link rel="stylesheet" href="/assets/aos/aos.css" />
-   
-        <script defer src="/assets/js/nav.js"></script>
+        <!-- Defer AOS CSS - loaded async to avoid render-blocking -->
+        <link rel="preload" href="/assets/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/aos/aos.css" /></noscript>
 
+        <script defer src="/assets/js/nav.js"></script>
 
         {% block head %}{% endblock %}
 
-        <!--For home page, use service keywords for the title, including location for SEO.
-        Other pages should just include the page name.
-        
-        EXAMPLE:
-        Home page - House Painting Contractors | Painters and Co. | TestCity, WA
-        About Page - About us | Painters and Co.
-        -->
-        <title>
-            {% if page.url == '/'%}
-                {{ title }}
-                |
-                {{ client.name }}
-                |
-                {{ client.address.city }},
-                {{ client.address.state }}
-            {% else %}
-                {{ title }}
-                |
-                {{ client.name }}
-            {% endif %}
-        </title>
+        <!-- LocalBusiness / GeneralContractor JSON-LD -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "GeneralContractor",
+            "@id": "{{ client.domain }}/#business",
+            "name": "{{ client.name }}",
+            "legalName": "{{ client.legalName }}",
+            "description": "{{ description }}",
+            "url": "{{ client.domain }}",
+            "telephone": "{{ client.phoneFormatted }}",
+            "email": "{{ client.email }}",
+            "image": "{{ client.domain }}/assets/images/og-default.jpg",
+            "logo": "{{ client.domain }}/assets/images/logo.png",
+            "priceRange": "{{ client.priceRange }}",
+            "foundingDate": "{{ client.founded }}",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "{{ client.address.city }}",
+                "addressRegion": "{{ client.address.state }}",
+                "postalCode": "{{ client.address.zip }}",
+                "addressCountry": "{{ client.address.country }}"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": {{ client.address.latitude }},
+                "longitude": {{ client.address.longitude }}
+            },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                    "opens": "07:00",
+                    "closes": "17:00"
+                }
+            ],
+            "areaServed": [
+                {% for area in client.serviceAreaList %}{ "@type": "City", "name": "{{ area }}" }{% if not loop.last %},{% endif %}{% endfor %}
+            ],
+            "sameAs": [
+                "{{ client.facebook }}",
+                "{{ client.google }}"
+            ],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "{{ client.googleRating }}",
+                "reviewCount": "20"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Construction Services",
+                "itemListElement": [
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Construction" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tenant Office Renovations" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industrial Design Build" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drywall Repair" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Building Maintenance" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Welding" } }
+                ]
+            }
+        }
+        </script>
+
+        {% if serviceLanding %}
+        <!-- Service Schema for SEO Landing Pages -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "{{ serviceLanding.name }}",
+            "serviceType": "{{ serviceLanding.serviceType }}",
+            "description": "{{ description }}",
+            "provider": { "@id": "{{ client.domain }}/#business" },
+            "areaServed": [
+                {% for area in client.serviceAreaList %}{ "@type": "City", "name": "{{ area }}" }{% if not loop.last %},{% endif %}{% endfor %}
+            ],
+            "url": "{{ client.domain }}{{ page.url }}"
+        }
+        </script>
+        {% endif %}
+
+        {% if faqSchema %}
+        <!-- FAQ Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {% for faq in faqSchema %}
+                {
+                    "@type": "Question",
+                    "name": "{{ faq.q }}",
+                    "acceptedAnswer": { "@type": "Answer", "text": "{{ faq.a }}" }
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }
+        </script>
+        {% endif %}
+
     </head>
-    <body>
+    <body id="top">
         <!--Screen reader skip main nav-->
         <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
 
@@ -88,17 +197,19 @@
         </main>
         {% include "components/footer.html" %}
 
-
-
-            
-        <script src="/assets/js/aos.js"></script>
-
+        <!-- Defer AOS until after first paint -->
         <script>
-          AOS.init({
-            easing: 'ease-in-out-sine',
+          window.addEventListener('load', function() {
+            var s = document.createElement('script');
+            s.src = '/assets/js/aos.js';
+            s.onload = function() {
+              if (window.AOS) {
+                AOS.init({ easing: 'ease-in-out-sine', once: true, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });
+              }
+            };
+            document.body.appendChild(s);
           });
         </script>
-
 
     </body>
 </html>

@@ -1,21 +1,52 @@
 {
     "name": "Abstract Construction LLC",
-    "service": "Roofing",
-    "email": "info@designgandalf.com",
-    "phoneForTel": "618.771.0767",
-    "phoneFormatted": "618.771.0767",
+    "legalName": "Abstract Construction LLC",
+    "service": "General Contractor",
+    "serviceShort": "Commercial Construction",
+    "tagline": "Build smarter. Build better. Build together.",
+    "yearsInBusiness": 10,
+    "founded": 2015,
+    "license": "Licensed & Insured",
+    "googleRating": "5.0",
+    "googleReviewCount": "20+",
+    "email": "zach@abstractconstruction.net",
+    "phone": "(618) 771-0767",
+    "phoneForTel": "6187710767",
+    "phoneFormatted": "(618) 771-0767",
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 07:00-17:00",
     "serviceAreas": {
-        "areaOne": "Daytona, FL",
-        "areaTwo": "Port Orange, FL"
+        "areaOne": "St. Louis, MO",
+        "areaTwo": "Metro East, IL"
     },
+    "serviceAreaList": [
+        "St. Louis, MO",
+        "St. Charles, MO",
+        "Chesterfield, MO",
+        "Clayton, MO",
+        "O'Fallon, MO",
+        "Kirkwood, MO",
+        "Webster Groves, MO",
+        "Belleville, IL",
+        "Edwardsville, IL",
+        "Granite City, IL",
+        "O'Fallon, IL",
+        "Collinsville, IL"
+    ],
     "address": {
-        "lineOne": "788 Samms",
+        "lineOne": "",
         "lineTwo": "",
-        "city": "Detroit",
-        "state": "MI",
-        "zip": "48203",
-        "mapLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d376696.41518319945!2d-83.171443!3d42.47154895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa266093a6a8181b1%3A0x6a45925dc6b8cd4a!2sDesign%20Gandalf!5e0!3m2!1sen!2sus!4v1736268507144!5m2!1sen!2sus"
+        "city": "St. Louis",
+        "state": "MO",
+        "zip": "63101",
+        "country": "US",
+        "latitude": 38.7170776,
+        "longitude": -90.0699593,
+        "mapLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99876.0!2d-90.27!3d38.6270!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf76097532cf735b%3A0xc67c00250e17744f!2sAbstract%20Construction%20LLC!5e0!3m2!1sen!2sus!4v1736268507144!5m2!1sen!2sus",
+        "googleListingUrl": "https://www.google.com/maps/place/Abstract+Construction+LLC/@38.7170776,-90.0699593,17z/data=!3m1!4b1!4m6!3m5!1s0xf76097532cf735b:0xc67c00250e17744f!8m2!3d38.7170776!4d-90.0699593!16s%2Fg%2F11x2wg6qtb"
     },
-    "domain": "https://abstractconstructionllc.com"
+    "facebook": "https://www.facebook.com/profile.php?id=100076881590011",
+    "google": "https://www.google.com/maps/place/Abstract+Construction+LLC/@38.7170776,-90.0699593,17z/data=!3m1!4b1!4m6!3m5!1s0xf76097532cf735b:0xc67c00250e17744f!8m2!3d38.7170776!4d-90.0699593!16s%2Fg%2F11x2wg6qtb",
+    "nextdoor": "",
+    "domain": "https://www.abstractconstructionllc.com"
 }
-

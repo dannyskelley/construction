@@ -1,7 +1,6 @@
- 
+
  <style>
      #map {
-  
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -15,48 +14,63 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* 48px - 64px */
     gap: clamp(3rem, 5vw, 4rem);
     position: relative;
     z-index: 1;
   }
   #map .cs-content {
-    /* aligns text centrally. set to left to left-align text */
     text-align: center;
     pointer-events: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* centrally aligns items. set to flex-start to left-align items */
     align-items: center;
     z-index: 2;
   }
-
-
-  @media only screen and (min-width: 44rem) {
-    #map .cs-container {width: 450px; position: absolute; top:30px; right:0px; padding-top:30px; padding-bottom:30px;
+  #map .area-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+  #map .area-list h3 {
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    margin: 0 .5rem .5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
   }
-}
+  @media only screen and (min-width: 44rem) {
+    #map .cs-container {
+      width: 480px;
+      position: absolute;
+      top: 30px;
+      right: 0px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
  </style>
 
  <section id="map">
- <!--Replace this embed code with the google maps embed code of your clients location. To do so, google your clients business, click on the map picture that in the profile card to go to the map location. That will take you to Google maps, then find the share button in the left panel and click on it. You will be given a link to share and a button to copy link, ignore that! AAbove that is a tab that says "Embed a map", click that instead and it will bring up the embed code for you clients location in maps.  Click the button to copy the html and paste it in place of this entire iframe tag. Do not keep the original iframe. Replace it with the new one you got from google maps, unless you want to display a map of Wyoming, then you can keep this iframe. -->
- <iframe src="{{client.address.mapLink}}" width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-<DIV class="cs-container" style="background-color: var(--primaryDark);">
-    <DIV class="cs-content" style="text-align: left; display: block;">
-    <div class="cs-title" style="text-align: left;">Areas we proudly serve</div>
-    <h3 style="color:white; display: inline-block; margin-right: 10px;"><img class="cs-icon" style="margin-right: 3px;" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpin-grey.svg" alt="pin icon" width="20" height="20">Detroit</h3>
+ <iframe
+   src="{{client.address.mapLink}}"
+   title="Map of {{client.name}} service area in St. Louis"
+   width="100%"
+   height="650"
+   style="border:0;"
+   allowfullscreen=""
+   loading="lazy"
+   referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-    <h3 style="color:white; display: inline-block; margin-right: 10px;"><img class="cs-icon" style="margin-right: 3px;" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpin-grey.svg" alt="pin icon" width="20" height="20">Royal Oak</h3>
-
-
-    <h3 style="color:white; display: inline-block; margin-right: 10px;"><img class="cs-icon" style="margin-right: 3px;" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpin-grey.svg" alt="pin icon" width="20" height="20">Troy</h3>
-
-
-
-    <h3 style="color:white; display: inline-block; margin-right: 10px;"><img class="cs-icon" style="margin-right: 3px;" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpin-grey.svg" alt="pin icon" width="20" height="20">Ferndale</h3>
-
-</DIV>
-</DIV>
-
+  <div class="cs-container" style="background-color: var(--primaryDark);">
+    <div class="cs-content" style="text-align: left; display: block;">
+      <div class="cs-title" style="text-align: left;">Areas we proudly serve</div>
+      <div class="area-list">
+        {% for area in client.serviceAreaList %}
+        <h3>
+          <img class="cs-icon" style="margin-right: 3px;" aria-hidden="true" loading="lazy" decoding="async"
+               src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpin-grey.svg" alt="" width="20" height="20">{{ area }}
+        </h3>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,7 +1,10 @@
 ---
-title: ' Build Smarter, Build Better – St. Louis’ Trusted Commercial Construction Partner | Abstract Construction LLC'
-description: 'Abstract Construction LLC delivers top tier commercial construction, tenant office renovations, and industrial design build services in St. Louis. Transparent pricing, high end craftsmanship, and efficient project completion. Call (618) 771-0767 for a free quote today!'
+title: 'Commercial Construction & General Contractor in St. Louis, MO | Abstract Construction LLC'
+description: 'Top-rated St. Louis general contractor delivering commercial construction, tenant improvements, drywall repair, and industrial design build. Licensed, insured, 5-star reviewed. Call (618) 771-0767 for a free quote.'
+keywords: 'general contractor st louis, commercial construction st louis, commercial contractors near me, drywall repair st louis, tenant improvements, industrial design build'
 permalink: '/'
+preloadImg: '/assets/images/bg1.jpg'
+ogImage: '/assets/images/og-default.jpg'
 eleventyNavigation:
   key: Home
   order: 100
@@ -13,50 +16,33 @@ eleventyNavigation:
     <link rel="stylesheet" href="/assets/css/local.css" />
     <link rel="stylesheet" href="/assets/css/critical.css" />
 
-  
     <!-- Script for Netlify Identity -->
     <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script defer>
         if (window.netlifyIdentity) {
-            window
-                .netlifyIdentity
-                .on('init', (user) => {
-                    if (!user) {
-                        window
-                            .netlifyIdentity
-                            .on('login', () => {
-                                document.location.href = '/admin/';
-                            });
-                    }
-                });
+            window.netlifyIdentity.on('init', (user) => {
+                if (!user) {
+                    window.netlifyIdentity.on('login', () => {
+                        document.location.href = '/admin/';
+                    });
+                }
+            });
         }
     </script>
-
 {% endblock %}
 
 {% block body %}
 
-
-   
 {% include 'components/hero.html' %}
-
-
-
-
+{% include 'components/trust_strip.html' %}
 {% include 'components/2.html' %}
 {% include 'components/3services.html' %}
 {% include 'components/4_service.html' %}
 {% include 'components/5why.html' %}
-
-
 {% include 'components/cta.html' %}
-
 {% include 'components/steps.html' %}
+{% include 'components/lead_form.html' %}
 {% include 'components/testimonial.html' %}
-
 {% include 'components/faq.html' %}
 
-
-
-{% include 'components/9form.html' %}
-    {% endblock %}
+{% endblock %}

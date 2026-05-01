@@ -241,7 +241,7 @@
   <div class="cs-container">
       <!-- Logo Group -->
       <div class="cs-logo-group">
-        <a aria-label="go back to home" class="cs-logo" href="">
+        <a aria-label="go back to home" class="cs-logo" href="/">
           <img class="cs-logo-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/logo.png" alt="logo" width="240" height="32">
       </a><div class="cs-topper">Build smarter. </div>
           <h2 class="cs-title" style="font-size: 2rem;">Build better. Build together.</h2>
@@ -250,8 +250,8 @@
               <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/facebook-1a.svg" alt="facebook" width="11" height="11">
           </a>
 
-          <a target="_blank" class="cs-social-link" aria-label="visit facebook profile" href="https://www.google.com/maps/place/Abstract+Construction+LLC/@38.7170776,-90.0699593,17z/data=!3m1!4b1!4m6!3m5!1s0xf76097532cf735b:0xc67c00250e17744f!8m2!3d38.7170776!4d-90.0699593!16s%2Fg%2F11x2wg6qtb?entry=ttu&g_ep=EgoyMDI1MDUwMy4wIKXMDSoASAFQAw%3D%3D">
-            <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/google-1a.svg" alt="facebook" width="11" height="11">
+          <a target="_blank" rel="noopener" class="cs-social-link" aria-label="visit our Google Business Profile" href="{{client.google}}">
+            <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/google-1a.svg" alt="google" width="11" height="11">
         </a>
         
              
@@ -266,50 +266,43 @@
       <div class="cs-ul-wrapper">
           <span class="cs-header">Quick Links</span>
           <ul class="cs-ul">
-            <li class="cs-li">
-                <a class="cs-link" href="/">Home</a>
-            </li>
-            <li class="cs-li">
-              <a class="cs-link" href="/about">About Us</a>
-          </li>
-              <li class="cs-li">
-                  <a class="cs-link" href="/services">Our Services</a>
-              </li>
-              <li class="cs-li">
-                <a class="cs-link" href="/photos">Photos of our Work</a>
-            </li>
-
-            <li class="cs-li">
-                <a class="cs-link" href="/contact">Contact Us</a>
-            </li>
-
-            <li class="cs-li">
-              <a class="cs-link" href="#top">Scroll to top</a>
-          </li>
-
+            <li class="cs-li"><a class="cs-link" href="/">Home</a></li>
+            <li class="cs-li"><a class="cs-link" href="/about">About Us</a></li>
+            <li class="cs-li"><a class="cs-link" href="/services">Our Services</a></li>
+            <li class="cs-li"><a class="cs-link" href="/photos">Photos of our Work</a></li>
+            <li class="cs-li"><a class="cs-link" href="/contact">Contact Us</a></li>
+          </ul>
+      </div>
+      <div class="cs-ul-wrapper">
+          <span class="cs-header">St. Louis Services</span>
+          <ul class="cs-ul">
+            <li class="cs-li"><a class="cs-link" href="/commercial-construction-st-louis/">Commercial Construction</a></li>
+            <li class="cs-li"><a class="cs-link" href="/general-contractor-st-louis/">General Contractor</a></li>
+            <li class="cs-li"><a class="cs-link" href="/drywall-repair-st-louis/">Drywall Repair</a></li>
+            <li class="cs-li"><a class="cs-link" href="/tenant-improvements-st-louis/">Tenant Improvements</a></li>
+            <li class="cs-li"><a class="cs-link" href="/industrial-design-build-st-louis/">Industrial Design Build</a></li>
           </ul>
       </div>
       <div class="cs-ul-wrapper">
           <!-- Contact Info -->
           <span class="cs-header">Contact us today</span>
           <ul class="cs-ul">
-              <!--<li class="cs-li">
-                  <a class="cs-link" href="tel:(618) 771-0767">
-                      <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-white.svg" alt="phone icon" width="24" height="24">
-                      (618) 771-0767
-                  </a>
-              </li>-->
               <li class="cs-li">
-                  <a class="cs-link" href="mailto:zach@abstractconstruction.net">
-                      <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/email-white.svg" alt="email icon" width="24" height="24">
-                      zach@abstractconstruction.net
+                  <a class="cs-link" href="tel:{{client.phoneForTel}}">
+                      <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-white.svg" alt="phone icon" width="24" height="24">
+                      {{client.phoneFormatted}}
                   </a>
               </li>
               <li class="cs-li">
-                  <!--Make this link go to the google page-->
-                  <a class="cs-link" href="" target="_blank">
+                  <a class="cs-link" href="mailto:{{client.email}}">
+                      <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/email-white.svg" alt="email icon" width="24" height="24">
+                      {{client.email}}
+                  </a>
+              </li>
+              <li class="cs-li">
+                  <a class="cs-link" href="{{client.google}}" target="_blank" rel="noopener">
                       <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/pin-white.svg" alt="pin icon" width="24" height="24">
-                     St. Louis Metro Area
+                     {{client.address.city}}, {{client.address.state}} Metro Area
                   </a>
               </li>
           </ul>
@@ -318,24 +311,29 @@
       
   </div>
 
+  <style>
+    .back-to-top {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--primary); color: #000;
+      padding: .55rem 1rem; border-radius: 999px;
+      text-decoration: none; font-weight: 700; font-size: .9rem;
+      border: none; cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .back-to-top:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(78,239,26,.4); color:#000; }
+    .back-to-top svg { width: 14px; height: 14px; }
+    .cs-bottom { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+  </style>
   <div class="cs-bottom">
     <span class="cs-credit">
-        © Copyright - <a href="/" class="cs-credit-link" target="_blank">{{client.name}}</a>
+        © Copyright - <a href="/" class="cs-credit-link">{{client.name}}</a>
     </span>
-    <div class="cs-bottom-links">
-      <STYLE>
-        .credit {color:white; text-align: left; margin-top: 30px;}
-        .gandalfpill {border:.5px solid #eee; transition: all ease .2s;margin-left:5px;vertical-align:middle;  display: inline-block; background-color: white; padding:0 8px; border-radius: 999px;}
-    .gandalfpill:hover img {filter: grayscale(1) brightness(1000%);transition: all ease .8s;}
-    .gandalfpill:hover {box-shadow:2px 2px #FFF; background-color: black;  transform: translateY(-5px); transition: all ease .2s; ;}
-    .back2top {font-size:2px}
-    </STYLE>
-    <div class="credit">
-        <span style="color: #999; font-size: 12px;">Website by</span>
-       
-        <a target="_blank" class="gandalfpill" href="https://designgandalf.com/"><img style="vertical-align:middle; " loading="lazy" decoding="async" src="/assets/svgs/gandalflogo.svg" alt="logo" height="12"></a>
-    </div>
-    </div>
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+      Back to top
+    </a>
 </div>
 
 
