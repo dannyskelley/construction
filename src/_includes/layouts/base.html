@@ -190,8 +190,8 @@
                 {% for faq in faqSchema %}
                 {
                     "@type": "Question",
-                    "name": "{{ faq.q }}",
-                    "acceptedAnswer": { "@type": "Answer", "text": "{{ faq.a }}" }
+                    "name": {{ faq.question | dump | safe }},
+                    "acceptedAnswer": { "@type": "Answer", "text": {{ faq.answer | dump | safe }} }
                 }{% if not loop.last %},{% endif %}
                 {% endfor %}
             ]
