@@ -408,12 +408,15 @@ eleventyNavigation:
       </div>
 
       <form id="cm-form"
-            action="https://formspree.io/f/xnnvkojb"
-            method="POST">
-        <input type="hidden" name="_subject" value="New lead from abstractconstructionllc.com (contact page)" />
+            name="contact"
+            method="POST"
+            action="/"
+            data-netlify="true"
+            netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="page" value="{{ page.url }}" />
         <label class="cm-hp" aria-hidden="true">
-          Leave this field empty: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          Leave this field empty: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
         </label>
 
         <label>
@@ -472,10 +475,10 @@ eleventyNavigation:
     btn.textContent = 'Sending…';
     btn.disabled = true;
     var data = new FormData(form);
-    fetch(form.action, {
+    fetch('/', {
       method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
     }).then(function(r){
       if (r.ok) {
         form.style.display = 'none';
@@ -483,7 +486,7 @@ eleventyNavigation:
         success.scrollIntoView({behavior:'smooth', block:'center'});
         if (window.gtag) gtag('event', 'generate_lead', {form_name:'contact_page'});
       } else {
-        return r.json().then(function(j){ throw new Error(j.error || 'Request failed'); });
+        throw new Error('Request failed');
       }
     }).catch(function(){
       errorBox.classList.add('show');
