@@ -41,9 +41,14 @@
   }
 
   #hero-2041 .cs-title {
-    font-size: clamp(2.1375rem, 6vw, 3.5rem);
+    font-size: clamp(2.1375rem, 5vw, 3.5rem);
     text-transform: uppercase;
     color: var(--bodyTextColorWhite);
+    max-width: 100%;
+  }
+
+  #hero-2041 .cs-title .hero-line {
+    display: block;
   }
 
   #hero-2041 .cs-text {
@@ -138,6 +143,7 @@
 @media only screen and (min-width: 48rem) {
   .hero-topper { max-width: 100%; font-size: clamp(0.75rem, 1.35vw, 1.05rem); white-space: nowrap; }
   #hero-2041 .cs-content { align-items: center; text-align: center; margin: auto; }
+  #hero-2041 .cs-title .hero-line { white-space: nowrap; }
   #hero-2041 .hero-trust { justify-content: center; }
   #hero-2041 .hero-award img { max-width: 260px; }
 }
@@ -151,8 +157,9 @@
       </span>
 
       <h1 class="cs-title">
-        Commercial <span style="color:#4EEF1A">&amp;</span> Industrial
-        Construction in St. Louis
+        <span class="hero-line">Commercial <span style="color:#4EEF1A">&amp;</span> Industrial</span>
+        <span class="hero-line">Construction</span>
+        <span class="hero-line">in St.&nbsp;Louis</span>
       </h1>
 
       <p class="cs-text">
