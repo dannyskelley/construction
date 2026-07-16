@@ -233,53 +233,25 @@
             <source media="(max-width: 600px)" srcset="/assets/images/about1.jpg">
             <!--Tablet and above Image-->
             <source media="(min-width: 601px)" srcset="/assets/images/about1.jpg">
-            <img loading="lazy" decoding="async" src="/assets/images/about1.jpg" alt="kitchen" width="373" height="550">
+            <img loading="lazy" decoding="async" src="/assets/images/about1.jpg" alt="commercial construction project by Abstract Construction LLC" width="373" height="550">
         </picture>
         <div class="cs-content">
            
             <h2 class="cs-title">Frequently Asked Questions</h2>
             <ul class="cs-faq-group">
-                <!-- Active class added as default -->
-                <li class="cs-faq-item active">
+                <!-- Rendered from the page's faqSchema frontmatter so visible FAQs always match the FAQPage JSON-LD -->
+                {% for faq in faqSchema %}
+                <li class="cs-faq-item{% if loop.first %} active{% endif %}">
                     <button class="cs-button">
                         <span class="cs-button-text">
-                            How much do your services cost?
+                            {{ faq.question }}
                         </span>
                     </button>
                     <p class="cs-item-p">
-                        Pricing varies depending on the type and scope of the service. For an accurate quote, please contact us, and we'll be happy to provide more details.
+                        {{ faq.answer }}
                     </p>
                 </li>
-                <li class="cs-faq-item">
-                    <button class="cs-button">
-                        <span class="cs-button-text">
-                            What is your cancellation policy?
-                        </span>
-                    </button>
-                    <p class="cs-item-p">
-                        Our cancellation policy depends on the type of service booked. Please reach out to our support team for specifics regarding cancellations and rescheduling.
-                    </p>
-                </li>
-                <li class="cs-faq-item">
-                    <button class="cs-button">
-                        <span class="cs-button-text">
-                            How long does a typical service take?
-                        </span>
-                    </button>
-                    <p class="cs-item-p">
-                        The duration of a service depends on the complexity and size of the project. On average, most services can be completed within a few hours to a few days. Contact us for a detailed timeline.
-                    </p>
-                </li>
-                <li class="cs-faq-item">
-                    <button class="cs-button">
-                        <span class="cs-button-text">
-                            How can I get a quote for your services?
-                        </span>
-                    </button>
-                    <p class="cs-item-p">
-                        You can request a quote by contacting us via phone, email, or through our website. Provide us with details about your needs, and we’ll get back to you promptly with an estimate.
-                    </p>
-                </li>
+                {% endfor %}
             </ul>
             
         </div>

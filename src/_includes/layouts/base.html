@@ -138,6 +138,16 @@
             "areaServed": [
                 {% for area in client.serviceAreaList %}{ "@type": "City", "name": "{{ area }}" }{% if not loop.last %},{% endif %}{% endfor %}
             ],
+            "knowsAbout": [
+                "warehouse construction",
+                "commercial construction",
+                "industrial design-build",
+                "office build-outs",
+                "tenant improvements",
+                "structural steel fabrication",
+                "mezzanine construction",
+                "commercial remodeling"
+            ],
             "sameAs": [
                 "{{ client.facebook }}",
                 "{{ client.google }}"
@@ -152,8 +162,11 @@
                 "name": "Construction Services",
                 "itemListElement": [
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Construction" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tenant Office Renovations" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Warehouse Construction" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Office Build-Outs & Tenant Improvements" } },
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industrial Design Build" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Structural Steel & Mezzanine Fabrication" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Remodeling" } },
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drywall Repair" } },
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Building Maintenance" } },
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Welding" } }
