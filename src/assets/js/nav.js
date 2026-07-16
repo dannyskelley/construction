@@ -1,3 +1,4 @@
+(function () {
 // add classes for mobile navigation toggling
 var CSbody = document.querySelector("body");
 const CSnavbarMenu = document.querySelector("#cs-navigation");
@@ -46,3 +47,4 @@ const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropd
 	item.addEventListener('click', onClick)
 	}
 							
+})();
