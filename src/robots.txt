@@ -1,4 +1,41 @@
+# All crawlers welcome (except /admin/)
 User-agent: *
+Disallow: /admin/
+
+# AI search & answer engines - explicitly allowed
+User-agent: GPTBot
+Disallow: /admin/
+Allow: /
+
+User-agent: OAI-SearchBot
+Disallow: /admin/
+Allow: /
+
+User-agent: ChatGPT-User
+Disallow: /admin/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /admin/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /admin/
+Allow: /
+
+User-agent: Claude-Web
+Disallow: /admin/
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /admin/
+Allow: /
+
+User-agent: CCBot
+Disallow: /admin/
+Allow: /
+
+User-agent: Bingbot
 Disallow: /admin/
 Allow: /
 
